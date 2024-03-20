@@ -1,0 +1,75 @@
+
+
+#Step one download and install "Git"  (not github) These are super detailed.  It's not really that complex.
+#https://git-scm.com/download/win 
+#choose the defaults and notepad as the default editor if you don't have another preference
+
+#Open Command Line and run the following commands to setup username and email
+win + r
+
+#type
+cmd
+
+#press enter and a comand prompt should open
+#you can type  git --help to see if git is installed and see a list of program commands
+git --help
+
+
+#enter the following commands to configure git with your personal information.  
+#This will show up on your git hub submissions.  Your future employers may see this so keep that in mind.
+
+git config --global user.name "Your Name"
+git config --global user.email "youraddr@emailaddress.com"
+
+#Open github and make sure your logged in.
+#Go to https://github.com/sentient-russ/ADAD
+#while logged in select the fork button in the top right corner while inside the ADAD repository
+#This creates a new forked branch (copy of the repository) under your account
+#Click your username breadcrum in the top left to return to your account profile
+#At the top left you should have a link for repositories.
+#Select the link.  You should see your forked copy of ADAD. Clicking the link will take you to your master branch.
+
+#now that you have a copy you need to cone it to your system so that you can work on it.
+#If you do not have visual studio 2022 or later you will need to download and install the community version (free) from #https://visualstudio.microsoft.com 
+#By default the repos folder contains the viual studio project files.  Return to the cmd prompt and change to the repos directory.  
+cd c:/Users/<your_usr_name>/source/repos/
+
+#In my case its "cd c:/Users/russe/source/repos/
+#Once your in the correct folder you can clone you forked copy of the repository
+#The url comes from your github account.  go there and click the green code button.  
+#select the copy button for Clone->Https "Clone using the web URL" option
+#back in the cmd window that is currently in your repos folder type the following command
+git clone "your url"
+
+#for me it looks like "git clone https://github.com/sentient-russ/gcai.git"
+#This will make a local copy that you can work off of on your computer.
+
+#You can now open visual studio and edit the project.
+
+------------------------------------------------------------------------------
+
+#Instructions for submiting your changes for inclussion in the groups main branch
+
+#Open the cmd prompt.
+#go to your repos/ADAD folder
+cd c:/Users/<your_usr_name>/source/repos/ADAD 
+
+#While inside the folder type the following command with a . to bundle all of your changes togeter
+git add .
+
+#Then add a commit message to the bundle
+#This is an important point. Only make a set of related changes per commit.  
+#Do not change unrelated stuff all over the project.  
+#Your pull request will get rejected and this will result in more work for you."
+git commit -m "Enter a short description of your changes here."
+
+#Once this is done you may upload your changes to your branch master by typing 
+git push origin master
+
+#You can now go to the repository in your account and make sure that the changes have been uploaded by browsing the contents of a file online to see that a recent change is present.
+#The last step is submitting a pull request. A pull request is a proposal to merge a set of changes from one branch into another.
+#From your github accounts copy (branch) you may click on the "Pull Requests" option.
+#Select the green "New pull request" button.
+#Reveiw your changes and select "Create pull request"
+
+#Thats it.  From there I will review and hopefully just merge the changes into the group branch.  If things don't go as planned let me know.  I am happy to help.
