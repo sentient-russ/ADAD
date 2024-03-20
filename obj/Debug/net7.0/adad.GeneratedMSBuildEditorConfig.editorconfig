@@ -9,45 +9,47 @@ build_property.EnforceExtendedAnalyzerRules =
 build_property._SupportedPlatformList = Linux,macOS,Windows
 build_property.RootNamespace = adad
 build_property.RootNamespace = adad
-build_property.ProjectDir = C:\Users\russe\source\repos\adad\
+build_property.ProjectDir = C:\Users\zchry\Documents\GitHub\ADAD\
+build_property.EnableComHosting = 
+build_property.EnableGeneratedComInterfaceComImportInterop = 
 build_property.RazorLangVersion = 7.0
 build_property.SupportLocalizedComponentNames = 
 build_property.GenerateRazorMetadataSourceChecksumAttributes = 
-build_property.MSBuildProjectDirectory = C:\Users\russe\source\repos\adad
+build_property.MSBuildProjectDirectory = C:\Users\zchry\Documents\GitHub\ADAD
 build_property._RazorSourceGeneratorDebug = 
 
-[C:/Users/russe/source/repos/adad/Areas/Identity/Pages/_ViewStart.cshtml]
+[C:/Users/zchry/Documents/GitHub/ADAD/Areas/Identity/Pages/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = QXJlYXNcSWRlbnRpdHlcUGFnZXNcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/russe/source/repos/adad/Views/Home/Index.cshtml]
+[C:/Users/zchry/Documents/GitHub/ADAD/Views/Home/Index.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxJbmRleC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/russe/source/repos/adad/Views/Home/Privacy.cshtml]
+[C:/Users/zchry/Documents/GitHub/ADAD/Views/Home/Privacy.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcSG9tZVxQcml2YWN5LmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/russe/source/repos/adad/Views/Shared/Error.cshtml]
+[C:/Users/zchry/Documents/GitHub/ADAD/Views/Shared/Error.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXEVycm9yLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/russe/source/repos/adad/Views/Shared/_LoginPartial.cshtml]
+[C:/Users/zchry/Documents/GitHub/ADAD/Views/Shared/_LoginPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9Mb2dpblBhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/russe/source/repos/adad/Views/Shared/_ValidationScriptsPartial.cshtml]
+[C:/Users/zchry/Documents/GitHub/ADAD/Views/Shared/_ValidationScriptsPartial.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9WYWxpZGF0aW9uU2NyaXB0c1BhcnRpYWwuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/russe/source/repos/adad/Views/_ViewImports.cshtml]
+[C:/Users/zchry/Documents/GitHub/ADAD/Views/_ViewImports.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdJbXBvcnRzLmNzaHRtbA==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/russe/source/repos/adad/Views/_ViewStart.cshtml]
+[C:/Users/zchry/Documents/GitHub/ADAD/Views/_ViewStart.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcX1ZpZXdTdGFydC5jc2h0bWw=
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/russe/source/repos/adad/Views/Shared/_Layout.cshtml]
+[C:/Users/zchry/Documents/GitHub/ADAD/Views/Shared/_Layout.cshtml]
 build_metadata.AdditionalFiles.TargetPath = Vmlld3NcU2hhcmVkXF9MYXlvdXQuY3NodG1s
 build_metadata.AdditionalFiles.CssScope = b-j0easqyvch
