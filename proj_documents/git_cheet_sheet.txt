@@ -1,4 +1,4 @@
-
+##  ATTENTION: Always make a back of your source folder before messing with git.  You can loose things mistakenly in this process!
 
 #Step one download and install "Git"  (not github) These are super detailed.  It's not really that complex.
 #https://git-scm.com/download/win 
