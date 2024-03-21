@@ -13,7 +13,7 @@ namespace adad.Models
         [Key]
         [BindProperty(SupportsGet = true, Name = "idSite")]
         [DisplayName("Site ID")]
-        public string? idSite { get; set; } = "";
+        public string idSite { get; set; } = "";
 
         [BindProperty(SupportsGet = true, Name = "site_name")]
         [DisplayName("Site Name")]
@@ -52,5 +52,6 @@ namespace adad.Models
         public string? email { get; set; } = "";
 
     }
+
 
 }

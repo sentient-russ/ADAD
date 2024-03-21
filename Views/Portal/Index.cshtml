@@ -1,0 +1,49 @@
+﻿@model adad.Models.ViewModelBundle
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Identity
+@using System.Net
+@using adad.Areas.Identity.Data
+
+@{
+    var data = Model;
+}
+
+<div class="text-center">
+
+        <h1 class="display-4">A.D.A.D.</h1>
+
+        <p><span class="portal-user-info">welcomes @Html.DisplayFor(data => data.FirstName) @Html.DisplayFor(data => data.LastName)!</span></p>
+ 
+        <div class="map-container">
+            <div id="map"></div>
+       </div>
+
+        
+        <p>Site list goes here.</p>
+
+</div>
+
+<script>
+
+async function initMap() {
+    // The location of Uluru
+        const position = { lat: 32.676333731307835, lng: -16.932221892428686 };
+    // Request needed libraries.
+    const { Map } = await google.maps.importLibrary("maps");
+    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
+
+    // The map, centered at Uluru
+    map = new Map(document.getElementById("map"), {
+        zoom: 1.75,
+        center: position,
+        mapId: "WorldMap",
+
+    });
+    
+
+
+
+}
+</script>
+<script type="module" src="~/js/site.js"></script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFZVZ2snML1pKHCOF7j92hu_FR5PRdWB0&loading=async&callback=initMap" async defer></script>

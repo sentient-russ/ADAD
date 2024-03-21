@@ -1,8 +1,36 @@
-﻿@{
+﻿@using Microsoft.AspNetCore.Identity
+@using adad.Areas.Identity.Data
+
+@inject SignInManager<ApplicationUser> SignInManager
+@inject UserManager<ApplicationUser> UserManager
+
+@{
     ViewData["Title"] = "Home Page";
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+
+
+    @if (SignInManager.IsSignedIn(User))
+    {
+        <a class="nav-link text-dark" href="/Portal/" >
+            <img class="apple-logo-large" src="/img/apple.png" />
+        </a>
+    }
+    else
+    {
+        <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">
+            <img class="apple-logo-large" src="/img/apple.png" />
+        </a>
+
+    }
+
+    <h1 class="display-4">A.D.A.D.</h1>
+    
+    <p>Apple's Disaster Recovery System</p>
+    
+    <p>
+        *THIS WEBSITE IS A CLASS PROJECT PROTOTYPE AND IS IN NO WAY AFILIATED WITH APPLE!
+    </p>
 </div>
+
