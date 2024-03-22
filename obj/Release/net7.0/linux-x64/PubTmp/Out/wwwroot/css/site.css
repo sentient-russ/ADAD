@@ -3,6 +3,8 @@ html {
     position: relative;
     min-height: 100%;
     text-decoration: none;
+
+
 }
 @media (min-width: 768px) {
   html {
@@ -12,8 +14,9 @@ html {
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
+
 body {
-  margin-bottom: 60px;
+
 }
 .center-main {
     display: flex;
@@ -26,9 +29,25 @@ body {
 }
 .apple-logo-large {
     max-width: 20vw;
-    transform: translateY(40px);
 }
 .apple-logo-medium {
     max-width: 17vw;
-    transform: translateY(20px);
 }
+#map {
+    height: 20%;
+    min-height: calc(20vw + 20vh);
+    min-width: calc(20vw + 20vh);
+    justify-content: center;
+    margin-left: auto;
+    margin-right: auto;
+}
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    white-space: nowrap;
+    line-height: 30px !important;
+    max-height: 30px;
+}
+
+

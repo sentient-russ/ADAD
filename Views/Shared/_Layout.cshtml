@@ -3,11 +3,11 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - A.D.A.D.</title>
-    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <title>Apple A.D.A.D.</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/adad.styles.css" asp-append-version="true" />
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+
 </head>
 <body>
     <header>
@@ -19,16 +19,9 @@
                     <span class="navbar-toggler-icon"></span>
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
-                    <ul class="navbar-nav flex-grow-1">
-@*                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Index">Home</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
-                        </li> *@
-                    </ul>
-                </div>
+                    <ul class="navbar-nav flex-grow-1">@* removed menu items here. *@ </ul>
                 <partial name="_LoginPartial" />
+                </div>
             </div>
         </nav>
     </header>
@@ -44,8 +37,11 @@
         </div>
     </footer>
     
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script type="module" src="~/js/site.js"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDFZVZ2snML1pKHCOF7j92hu_FR5PRdWB0&loading=async&callback=initMap" async defer></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
 
     @await RenderSectionAsync("Scripts", required: false)
 </body>
