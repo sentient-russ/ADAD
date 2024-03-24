@@ -2,26 +2,35 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Xml.Linq;
+using System.Text.Json.Serialization;
 
 namespace adad.Models
 {
+
     [ApiController]
     [Route("[Controller]")]
     [BindProperties(SupportsGet = true)]
+
+
     public class SiteModel
     {
         [Key]
         [BindProperty(SupportsGet = true, Name = "idSite")]
         [DisplayName("Site ID")]
-        public string idSite { get; set; } = "";
+        public string? idSite { get; set; } = "";
 
         [BindProperty(SupportsGet = true, Name = "site_name")]
         [DisplayName("Site Name")]
         public string? site_name { get; set; } = "";
 
+
         [BindProperty(SupportsGet = true, Name = "country")]
         [DisplayName("Site Country")]
         public string? country { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "country_id")]
+        [DisplayName("Site Country ID")]
+        public string? country_id { get; set; } = "";
 
         [BindProperty(SupportsGet = true, Name = "city")]
         [DisplayName("Site City")]
@@ -39,6 +48,10 @@ namespace adad.Models
         [DisplayName("Contact Name")]
         public string? contact_name { get; set; } = "";
 
+        [BindProperty(SupportsGet = true, Name = "country_code")]
+        [DisplayName("Phone Country Code")]
+        public string? country_code { get; set; } = "";
+
         [BindProperty(SupportsGet = true, Name = "phone")]
         [DisplayName("Site Contact Number")]
         public string? phone { get; set; } = "";
@@ -51,7 +64,6 @@ namespace adad.Models
         [DisplayName("Site Email")]
         public string? email { get; set; } = "";
 
+
     }
-
-
 }

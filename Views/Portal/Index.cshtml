@@ -3,11 +3,9 @@
 @using Microsoft.AspNetCore.Identity
 @using System.Net
 @using adad.Areas.Identity.Data
-
 @{
     var data = Model;
 }
-
 <div class="text-center">
 
         <h1 class="display-4">A.D.A.D.</h1>
@@ -17,10 +15,7 @@
         <div class="map-container">
             <div id="map"></div>
        </div>
-
-        
         <p>Site list goes here.</p>
-
 </div>
 
 <script>
@@ -39,9 +34,11 @@ async function initMap() {
         mapId: "WorldMap",
 
     });
-    
-
-
-
+    // The marker, positioned at Uluru
+    const marker = new AdvancedMarkerElement({
+        map: map,
+        position: position,
+        title: "Some Site",
+    });
 }
 </script>

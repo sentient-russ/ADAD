@@ -12,13 +12,14 @@ using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.ResponseCompression;
 using Microsoft.Extensions.Options;
+using System.Diagnostics;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Configuration.AddEnvironmentVariables();
-var environ = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
+
 builder.Services.Configure<ForwardedHeadersOptions>(options =>
 {
     options.ForwardedHeaders = ForwardedHeaders.XForwardedFor;
@@ -40,39 +41,55 @@ builder.WebHost.ConfigureKestrel((context, serverOptions) =>
 });
 var connectionString = "";
 var MD_Email_Pass = "";
+var Accuweather_Key = "";
+var Google_Key = "";
+var Google_Maps_API_Key = "";
+var environ = Environment.GetEnvironmentVariable("ASPNETCORE_ENVIRONMENT");
 if (environ == "Production")
 {
     //pulls connection string from environment variables
     connectionString = Environment.GetEnvironmentVariable("MariaDbConnectionStringLocal");
     MD_Email_Pass = Environment.GetEnvironmentVariable("MD_Email_Pass");
+    Accuweather_Key = Environment.GetEnvironmentVariable("Accuweather_Key");
+    Google_Key = Environment.GetEnvironmentVariable("Google_Key");
+    Google_Maps_API_Key = Environment.GetEnvironmentVariable("Google_Maps_API_Key");
+
 }
 else
 {
     //pulls connection string from development local version of secrets.json
     connectionString = builder.Configuration.GetConnectionString("MariaDbConnectionStringRemote");
     MD_Email_Pass = builder.Configuration.GetConnectionString("MD_Email_Pass");
+    Accuweather_Key = builder.Configuration.GetConnectionString("Accuweather_Key");
+    Google_Key = builder.Configuration.GetConnectionString("Google_Key");
+    Google_Maps_API_Key = builder.Configuration.GetConnectionString("Google_Maps_API_Key");
 }
-Environment.SetEnvironmentVariable("DbConnectionString", connectionString);//this is used in services to access the string
-Environment.SetEnvironmentVariable("MD_Email_Pass", MD_Email_Pass);//this is used in EmailSender method to access the string
+Environment.SetEnvironmentVariable("DbConnectionString", connectionString);
+Environment.SetEnvironmentVariable("MD_Email_Pass", MD_Email_Pass);
+Environment.SetEnvironmentVariable("Accuweather_Key", Accuweather_Key);
+Environment.SetEnvironmentVariable("Google_Key", Google_Key);
+Environment.SetEnvironmentVariable("Google_Maps_API_Key", Google_Maps_API_Key);
+
 
 var serverVersion = new MySqlServerVersion(new Version(10, 6, 11));
 //use this option for a stable normal configuration
-/*builder.Services.AddDbContext<ApplicationDbContext>(
+builder.Services.AddDbContext<ApplicationDbContext>(
     dbContextOptions => dbContextOptions
         .UseMySql(connectionString, serverVersion, options => options.EnableRetryOnFailure())
 
         .LogTo(Console.WriteLine, LogLevel.Information)
         .EnableSensitiveDataLogging()
         .EnableDetailedErrors()
-);*/
+);
 //use for code first migrations with mysql only
-builder.Services.AddDbContext<ApplicationDbContext>(
+/*builder.Services.AddDbContext<ApplicationDbContext>(
     dbContextOptions => dbContextOptions
         .UseMySql(connectionString, serverVersion, options => options.SchemaBehavior(Pomelo.EntityFrameworkCore.MySql.Infrastructure.MySqlSchemaBehavior.Ignore))
         .LogTo(Console.WriteLine, LogLevel.Information)
         .EnableSensitiveDataLogging()
         .EnableDetailedErrors()
-);
+);*/
+
 builder.Services.AddDefaultIdentity<ApplicationUser>(options => options.SignIn.RequireConfirmedAccount = true)
     .AddEntityFrameworkStores<ApplicationDbContext>();
 builder.Services.AddControllersWithViews();

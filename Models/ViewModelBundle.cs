@@ -16,7 +16,5 @@ namespace adad.Models
 
         [NotMapped]
         public List<SiteModel> Sites { get; set; } = new List<SiteModel>();
-
-
     }
 }
