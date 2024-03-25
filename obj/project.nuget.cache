@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "5X5oDnWh9zcQm6VFpcx1CvMGlkdg1OTEIE+vWoyEtY5SV689uDvijIjvCFjmq2iD8i8qY7aqPxGuoDIhOjmfqg==",
+  "dgSpecHash": "bTgIy2wE3ZKSO8SXfbcvtwuNdveWjhCFoNNqpLH5XSUWOYdd/fELXyMuh+d+CKW7/5xbokzmensWSdzMmnjwlA==",
   "success": true,
   "projectFilePath": "C:\\Users\\russe\\source\\repos\\adad\\adad.csproj",
   "expectedPackageFiles": [
@@ -59,17 +59,25 @@
     "C:\\Users\\russe\\.nuget\\packages\\humanizer.core.zh-cn\\2.14.1\\humanizer.core.zh-cn.2.14.1.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\humanizer.core.zh-hans\\2.14.1\\humanizer.core.zh-hans.2.14.1.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\humanizer.core.zh-hant\\2.14.1\\humanizer.core.zh-hant.2.14.1.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\jquery\\1.6.4\\jquery.1.6.4.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\k4os.compression.lz4\\1.3.5\\k4os.compression.lz4.1.3.5.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\k4os.compression.lz4.streams\\1.3.5\\k4os.compression.lz4.streams.1.3.5.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\k4os.hash.xxhash\\1.0.8\\k4os.hash.xxhash.1.0.8.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\mailkit\\4.4.0\\mailkit.4.4.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\medireport.mysql.data\\8.1.0\\medireport.mysql.data.8.1.0.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.aspnet.signalr.core\\2.4.3\\microsoft.aspnet.signalr.core.2.4.3.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.aspnet.signalr.js\\2.4.3\\microsoft.aspnet.signalr.js.2.4.3.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.aspnet.signalr.systemweb\\2.4.3\\microsoft.aspnet.signalr.systemweb.2.4.3.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.aspnetcore.connections.abstractions\\8.0.3\\microsoft.aspnetcore.connections.abstractions.8.0.3.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\7.0.17\\microsoft.aspnetcore.cryptography.internal.7.0.17.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.aspnetcore.cryptography.keyderivation\\7.0.17\\microsoft.aspnetcore.cryptography.keyderivation.7.0.17.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.aspnetcore.identity.entityframeworkcore\\7.0.17\\microsoft.aspnetcore.identity.entityframeworkcore.7.0.17.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.aspnetcore.identity.ui\\7.0.17\\microsoft.aspnetcore.identity.ui.7.0.17.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\6.0.11\\microsoft.aspnetcore.razor.language.6.0.11.nupkg.sha512",
-    "C:\\Users\\russe\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\6.0.0\\microsoft.bcl.asyncinterfaces.6.0.0.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.aspnetcore.signalr.client.core\\7.0.17\\microsoft.aspnetcore.signalr.client.core.7.0.17.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.aspnetcore.signalr.common\\8.0.3\\microsoft.aspnetcore.signalr.common.8.0.3.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.aspnetcore.signalr.protocols.json\\8.0.3\\microsoft.aspnetcore.signalr.protocols.json.8.0.3.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\8.0.0\\microsoft.bcl.asyncinterfaces.8.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.build\\17.3.2\\microsoft.build.17.3.2.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.build.framework\\17.3.2\\microsoft.build.framework.17.3.2.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\3.3.3\\microsoft.codeanalysis.analyzers.3.3.3.nupkg.sha512",
@@ -99,8 +107,9 @@
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.caching.memory\\7.0.0\\microsoft.extensions.caching.memory.7.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.configuration.abstractions\\7.0.0\\microsoft.extensions.configuration.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\7.0.0\\microsoft.extensions.dependencyinjection.7.0.0.nupkg.sha512",
-    "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\8.0.0\\microsoft.extensions.dependencyinjection.abstractions.8.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.dependencymodel\\7.0.0\\microsoft.extensions.dependencymodel.7.0.0.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.features\\8.0.3\\microsoft.extensions.features.8.0.3.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.fileproviders.abstractions\\7.0.0\\microsoft.extensions.fileproviders.abstractions.7.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.fileproviders.embedded\\7.0.17\\microsoft.extensions.fileproviders.embedded.7.0.17.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.http\\7.0.0\\microsoft.extensions.http.7.0.0.nupkg.sha512",
@@ -108,8 +117,8 @@
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.identity.stores\\7.0.17\\microsoft.extensions.identity.stores.7.0.17.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.logging\\7.0.0\\microsoft.extensions.logging.7.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.logging.abstractions\\7.0.1\\microsoft.extensions.logging.abstractions.7.0.1.nupkg.sha512",
-    "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.options\\7.0.1\\microsoft.extensions.options.7.0.1.nupkg.sha512",
-    "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.primitives\\7.0.0\\microsoft.extensions.primitives.7.0.0.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.options\\8.0.2\\microsoft.extensions.options.8.0.2.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.extensions.primitives\\8.0.0\\microsoft.extensions.primitives.8.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.identity.client\\4.56.0\\microsoft.identity.client.4.56.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.identity.client.extensions.msal\\4.56.0\\microsoft.identity.client.extensions.msal.4.56.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.identitymodel.abstractions\\6.35.0\\microsoft.identitymodel.abstractions.6.35.0.nupkg.sha512",
@@ -121,6 +130,9 @@
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.net.stringtools\\17.3.2\\microsoft.net.stringtools.17.3.2.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.netcore.platforms\\1.1.0\\microsoft.netcore.platforms.1.1.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.owin\\2.1.0\\microsoft.owin.2.1.0.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.owin.host.systemweb\\2.1.0\\microsoft.owin.host.systemweb.2.1.0.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\microsoft.owin.security\\2.1.0\\microsoft.owin.security.2.1.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.sqlserver.server\\1.0.0\\microsoft.sqlserver.server.1.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration\\7.0.12\\microsoft.visualstudio.web.codegeneration.7.0.12.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\microsoft.visualstudio.web.codegeneration.core\\7.0.12\\microsoft.visualstudio.web.codegeneration.core.7.0.12.nupkg.sha512",
@@ -145,6 +157,7 @@
     "C:\\Users\\russe\\.nuget\\packages\\nuget.projectmodel\\6.6.1\\nuget.projectmodel.6.6.1.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\nuget.protocol\\6.6.1\\nuget.protocol.6.6.1.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\nuget.versioning\\6.6.1\\nuget.versioning.6.6.1.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\owin\\1.0.0\\owin.1.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\pomelo.entityframeworkcore.mysql\\7.0.0\\pomelo.entityframeworkcore.mysql.7.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\portable.bouncycastle\\1.9.0\\portable.bouncycastle.1.9.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl\\4.3.0\\runtime.debian.8-x64.runtime.native.system.security.cryptography.openssl.4.3.0.nupkg.sha512",
@@ -194,7 +207,7 @@
     "C:\\Users\\russe\\.nuget\\packages\\system.io.filesystem\\4.3.0\\system.io.filesystem.4.3.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\system.io.filesystem.accesscontrol\\5.0.0\\system.io.filesystem.accesscontrol.5.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\system.io.filesystem.primitives\\4.3.0\\system.io.filesystem.primitives.4.3.0.nupkg.sha512",
-    "C:\\Users\\russe\\.nuget\\packages\\system.io.pipelines\\6.0.3\\system.io.pipelines.6.0.3.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\system.io.pipelines\\8.0.0\\system.io.pipelines.8.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\system.linq\\4.3.0\\system.linq.4.3.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\system.linq.expressions\\4.3.0\\system.linq.expressions.4.3.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\system.memory\\4.5.5\\system.memory.4.5.5.nupkg.sha512",
@@ -239,9 +252,10 @@
     "C:\\Users\\russe\\.nuget\\packages\\system.text.encoding.codepages\\8.0.0\\system.text.encoding.codepages.8.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\system.text.encodings.web\\8.0.0\\system.text.encodings.web.8.0.0.nupkg.sha512",
-    "C:\\Users\\russe\\.nuget\\packages\\system.text.json\\8.0.0\\system.text.json.8.0.0.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\system.text.json\\8.0.3\\system.text.json.8.0.3.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\system.threading.channels\\7.0.0\\system.threading.channels.7.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\system.threading.tasks.dataflow\\6.0.0\\system.threading.tasks.dataflow.6.0.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\system.threading.tasks.extensions\\4.5.4\\system.threading.tasks.extensions.4.5.4.nupkg.sha512",
@@ -251,5 +265,66 @@
     "C:\\Users\\russe\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\zstdsharp.port\\0.7.1\\zstdsharp.port.0.7.1.nupkg.sha512"
   ],
-  "logs": []
+  "logs": [
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.SignalR.Core 2.4.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.SignalR.Core",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.AspNet.SignalR.SystemWeb 2.4.3' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.AspNet.SignalR.SystemWeb",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Host.SystemWeb 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Host.SystemWeb",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Microsoft.Owin.Security 2.1.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Microsoft.Owin.Security",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    },
+    {
+      "code": "NU1701",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Package 'Owin 1.0.0' was restored using '.NETFramework,Version=v4.6.1, .NETFramework,Version=v4.6.2, .NETFramework,Version=v4.7, .NETFramework,Version=v4.7.1, .NETFramework,Version=v4.7.2, .NETFramework,Version=v4.8, .NETFramework,Version=v4.8.1' instead of the project target framework 'net7.0'. This package may not be fully compatible with your project.",
+      "libraryId": "Owin",
+      "targetGraphs": [
+        "net7.0"
+      ]
+    }
+  ]
 }

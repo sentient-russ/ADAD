@@ -35,8 +35,17 @@ namespace adad.Controllers
             data.FirstName = firstName;
             data.LastName = lastName;
             data.Email = email;
+    
+            DataAccess dataAccess = new DataAccess();
+            List<SiteModel> siteModels = dataAccess.GetSites();
 
-            //insert logic to retrieve user name and site data here.  Then pass to view.
+            for (int i = 0; i < siteModels.Count; i++)
+            {
+                siteModels[i].idSite = "mid" + siteModels[i].idSite; 
+
+            }
+            data.sites = siteModels;
+
             return View(data);
 
         }

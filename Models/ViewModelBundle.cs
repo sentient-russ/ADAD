@@ -15,6 +15,8 @@ namespace adad.Models
         public string? Email { get; set; } = string.Empty;
 
         [NotMapped]
-        public List<SiteModel> Sites { get; set; } = new List<SiteModel>();
+        //public string[][] sites {  get; set; }
+        public List<SiteModel> sites { get; set; }
+
     }
 }

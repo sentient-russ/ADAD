@@ -7,6 +7,11 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+
+    
 
 </head>
 <body>
@@ -30,19 +35,14 @@
             @RenderBody()
         </main>
     </div>
-
     <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2024 - adad - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
-    
 
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
-    <script type="module" src="~/js/site.js"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDwI7J3CJsUokRQ57NjfZ-qCPdeOvjNRkg&loading=async&callback=initMap" async defer></script>
-    <script src="~/lib/jquery/dist/jquery.min.js"></script>
-
+    <script src="~/js/site.js" async defer></script>
     @await RenderSectionAsync("Scripts", required: false)
 </body>
 </html>

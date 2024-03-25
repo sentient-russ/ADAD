@@ -11,14 +11,14 @@ using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption.ConfigurationM
 using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.ResponseCompression;
-using Microsoft.Extensions.Options;
-using System.Diagnostics;
+using SignalRChat.Hubs;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Configuration.AddEnvironmentVariables();
+builder.Services.AddSignalR();
 
 builder.Services.Configure<ForwardedHeadersOptions>(options =>
 {
@@ -146,4 +146,5 @@ app.MapControllerRoute(
     name: "portal",
     pattern: "{controller=PortalController}/{action=Index}/{id?}");
 app.MapRazorPages();
+app.MapHub<DataHub>("/DataHub");
 app.Run();

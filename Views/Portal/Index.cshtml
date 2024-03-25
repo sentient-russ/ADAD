@@ -1,10 +1,12 @@
 ﻿@model adad.Models.ViewModelBundle
+@using adad.Models
 @using Microsoft.AspNetCore.Components
 @using Microsoft.AspNetCore.Identity
 @using System.Net
 @using adad.Areas.Identity.Data
 @{
     var data = Model;
+    
 }
 <div class="text-center">
 
@@ -13,32 +15,60 @@
         <p><span class="portal-user-info">welcomes @Html.DisplayFor(data => data.FirstName) @Html.DisplayFor(data => data.LastName)!</span></p>
  
         <div class="map-container">
-            <div id="map"></div>
+
+        <div id="map"></div>
        </div>
+       <br />
         <p>Site list goes here.</p>
 </div>
 
 <script>
-
-async function initMap() {
-    // The location of Uluru
-        const position = { lat: 32.676333731307835, lng: -16.932221892428686 };
-    // Request needed libraries.
-    const { Map } = await google.maps.importLibrary("maps");
-    const { AdvancedMarkerElement } = await google.maps.importLibrary("marker");
-
-    // The map, centered at Uluru
-    map = new Map(document.getElementById("map"), {
-        zoom: 1.75,
-        center: position,
-        mapId: "WorldMap",
-
-    });
-    // The marker, positioned at Uluru
-    const marker = new AdvancedMarkerElement({
-        map: map,
-        position: position,
-        title: "Some Site",
-    });
-}
+    (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
+        ({ key: "AIzaSyC8CEJKL4ZC1czxl2DjKvXfUVY5ScRVt_w", v: "weekly" });</script>
 </script>
+
+
+<script type="text/javascript">
+
+   async function initMap() {
+        // Request needed libraries.
+        const { Map, InfoWindow } = await google.maps.importLibrary("maps");
+        const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
+        const map = new Map(document.getElementById("map"), {
+            center: { lat: 37.4239163, lng: -122.0947209 },
+            zoom: 2,
+            mapId: "4504f8b37365c3d0",
+        });
+        
+
+        const infoWindow = new InfoWindow();
+
+    @foreach (var u in Model.sites)
+    {
+    <text>
+                const @(u.idSite)pin = new PinElement({
+                    glyph: `@u.site_name`,
+                });
+
+
+         const @u.idSite = new AdvancedMarkerElement({
+                    map,
+                    position: { lat: @u.latitude, lng: @u.longitude },
+                    title: '@u.site_name',
+
+                });
+               
+            @(u.idSite).addListener("click", ({ domEvent, latLng }) => {
+                const { target } = domEvent;
+
+                infoWindow.close();
+                infoWindow.setContent(@(u.idSite).title);
+                infoWindow.open(@(u.idSite).map, @(u.idSite));
+            });
+    </text>
+    }
+  }
+  initMap();
+
+</script>
+

@@ -1,10 +1,10 @@
-﻿using System.Text.Json.Serialization;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+using System.Text.Json.Serialization;
 //This class is only used for the serialization of inbound lat long data using the accuweather API.  Do not use or disturb.
 namespace adad.Models
 {
     class GeoPositionJson
     {
-
         [JsonPropertyName("version")]
         public int version { get; set; }
 
@@ -29,6 +29,7 @@ namespace adad.Models
         [JsonPropertyName("GeoPosition")]
         public GeoPosition geoPosition { get; set; }
 
+      
         public class GeoPosition
         {
             [JsonPropertyName("Latitude")]

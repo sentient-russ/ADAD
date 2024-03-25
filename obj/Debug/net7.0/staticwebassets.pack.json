@@ -17,6 +17,14 @@
       "PackagePath": "staticwebassets\\img\\apple.png"
     },
     {
+      "Id": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
+      "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.js"
+    },
+    {
+      "Id": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\js\\signalr\\dist\\browser\\signalr.min.js",
+      "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.min.js"
+    },
+    {
       "Id": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\js\\site.js",
       "PackagePath": "staticwebassets\\js\\site.js"
     },

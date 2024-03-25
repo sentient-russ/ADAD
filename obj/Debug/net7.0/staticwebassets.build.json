@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "bylO8JQyukOkya4M1Jjnzi/66BFyXSyyv6yqsWqFE+A=",
+  "Hash": "sIg0acEuy0DjiSk34fGZV9USu4XrQIMTQ/kz2MACPP8=",
   "Source": "adad",
   "BasePath": "_content/adad",
   "Mode": "Default",
@@ -1120,6 +1120,40 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\img\\apple.png"
+    },
+    {
+      "Identity": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
+      "SourceId": "adad",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\",
+      "BasePath": "_content/adad",
+      "RelativePath": "js/signalr/dist/browser/signalr.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\signalr\\dist\\browser\\signalr.js"
+    },
+    {
+      "Identity": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\js\\signalr\\dist\\browser\\signalr.min.js",
+      "SourceId": "adad",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\",
+      "BasePath": "_content/adad",
+      "RelativePath": "js/signalr/dist/browser/signalr.min.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\signalr\\dist\\browser\\signalr.min.js"
     },
     {
       "Identity": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\js\\site.js",

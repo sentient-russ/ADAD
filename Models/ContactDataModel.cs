@@ -2,6 +2,7 @@
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel;
 using System.Xml.Linq;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace adad.Controllers
 {
@@ -13,7 +14,6 @@ namespace adad.Controllers
         [DisplayName("Full Name:")]
         [BindProperty(SupportsGet = true, Name = "Name")]
         public string? Name { get; set; }
-
 
         [Required]
         [DataType(DataType.EmailAddress)]

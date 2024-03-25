@@ -1,7 +1,11 @@
-﻿namespace adad.Models;
+﻿using System.ComponentModel.DataAnnotations.Schema;
+
+namespace adad.Models;
 //This class is only used for the serialization of inbound lat long data using the Google Maps API.  Do not use or disturb.
+[NotMapped]
 public class GoogleGeoCodeResponse
 {
+
     public String status;
     public results[] result;
 
