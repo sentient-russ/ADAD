@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "UziaMFG7JhFEJaiXJOXDtYYwAfS+gp3ka04g0BDJEt5tANQTVSrF9jLESPE2zYvilZOWp+AmiCr3JGCX10AbtA==",
+  "dgSpecHash": "m+FIe/ssQrBM7Ox1iOvBAOoqEYQmfUWYIWijmbmVRuY0rqlkfwTaT9rfNHZMgv/4lpjK50SivAS24u8AxW87zw==",
   "success": true,
   "projectFilePath": "C:\\Users\\russe\\source\\repos\\adad\\adad.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\russe\\.nuget\\packages\\azure.core\\1.35.0\\azure.core.1.35.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\azure.identity\\1.10.3\\azure.identity.1.10.3.nupkg.sha512",
+    "C:\\Users\\russe\\.nuget\\packages\\bootstrap\\5.3.3\\bootstrap.5.3.3.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\bouncycastle.cryptography\\2.3.0\\bouncycastle.cryptography.2.3.0.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\google.protobuf\\3.21.9\\google.protobuf.3.21.9.nupkg.sha512",
     "C:\\Users\\russe\\.nuget\\packages\\googleapi\\5.3.1\\googleapi.5.3.1.nupkg.sha512",

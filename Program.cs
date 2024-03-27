@@ -146,6 +146,9 @@ app.MapControllerRoute(
 app.MapControllerRoute(
     name: "portal",
     pattern: "{controller=PortalController}/{action=Index}/{id?}");
+app.MapControllerRoute(
+    name: "portal",
+    pattern: "{controller=PortalController}/{action=Edit}/{id?}");
 app.MapRazorPages();
 app.MapHub<DataHub>("/DataHub");
 app.Run();

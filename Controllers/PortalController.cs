@@ -49,14 +49,68 @@ namespace adad.Controllers
             return View(data);
 
         }
-/*        [HttpGet]
+
+        [HttpGet]
         [Authorize]
         [Route("Portal/Edit/{idSite}")]
         public async Task<IActionResult> Edit([FromRoute] string? idSite)
         {
             DataAccess dataAccess = new DataAccess();
+            SiteModel siteModel = dataAccess.GetSite(idSite);
+            return View(siteModel); //edit current site view
+        }
 
-        }*/
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> Edit([Bind("idSite, site_name, country, country_id, city, latitude, longitude, contact_name, country_code, phone, sms, email, threat, severity")] SiteModel siteIn)
+        {
+            
+            //save updated site
+            DataAccess dataAccess = new DataAccess();
+            SiteModel updatedSite = dataAccess.UpdateSite(siteIn);
+
+
+            return RedirectToAction(nameof(Index)); //back to index
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("Portal/Delete/{idSite}")]
+        public async Task<IActionResult> Delete([FromRoute] string? idSite)
+        {
+            DataAccess dataAccess = new DataAccess();
+            SiteModel siteModel = dataAccess.GetSite(idSite);
+            bool result = dataAccess.DeleteSite(siteModel);
+            return RedirectToAction(nameof(Index)); //confirmation view
+        }
+
+        [HttpGet]
+        [Authorize]
+        [Route("Portal/Create/")]
+        public async Task<IActionResult> Create()
+        {
+            DataAccess dataAccess = new DataAccess();
+            int nextId = dataAccess.GetSiteId();
+            SiteModel newSite = new SiteModel();
+            newSite.idSite = nextId.ToString();
+
+            //needs to update with next available site number
+
+            return View(newSite); //create new site view
+        }
+        
+        [HttpPost]
+        [Authorize]
+        public async Task<IActionResult> CreateNew([Bind("idSite, site_name, country, country_id, city, latitude, longitude, contact_name, country_code, phone, sms, email, threat, severity")] SiteModel siteIn)
+        {
+
+            //save new site
+            DataAccess dataAccess = new DataAccess();
+            SiteModel updatedSite = dataAccess.InsertSiteDB(siteIn);
+
+
+            return RedirectToAction(nameof(Index)); //back to index
+        }
     }
 }
 

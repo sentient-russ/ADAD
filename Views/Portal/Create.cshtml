@@ -1,0 +1,113 @@
+﻿@model adad.Models.SiteModel
+@using Microsoft.AspNetCore.Components
+@using Microsoft.AspNetCore.Identity
+@using System.Net
+@using adad.Areas.Identity.Data
+
+<div cite="flex-container-column">
+    <center><h3>Create Site</h3></center>
+
+    <div class="row shadow portal-form">
+        <form asp-action="CreateNew" class="">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label asp-for="idSite" class="control-label"></label>
+                    <input asp-for="idSite" class="form-control" readonly />
+                    <span asp-validation-for="idSite" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="site_name" class="control-label"></label>
+                    <input asp-for="site_name" class="form-control" />
+                    <span asp-validation-for="site_name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="country" class="control-label"></label>
+                    <input asp-for="country" class="form-control" />
+                    <span asp-validation-for="country" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="country_id" class="control-label"></label>
+                    <input asp-for="country_id" class="form-control" />
+                    <span asp-validation-for="country_id" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="city" class="control-label"></label>
+                    <input asp-for="city" class="form-control" />
+                    <span asp-validation-for="city" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="latitude" class="control-label"></label>
+                    <input asp-for="latitude" class="form-control" />
+                    <span asp-validation-for="latitude" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="longitude" class="control-label"></label>
+                    <input asp-for="longitude" class="form-control" />
+                    <span asp-validation-for="longitude" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="contact_name" class="control-label"></label>
+                    <input asp-for="contact_name" class="form-control" />
+                    <span asp-validation-for="contact_name" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="country_code" class="control-label"></label>
+                    <input asp-for="country_code" class="form-control" />
+                    <span asp-validation-for="country_code" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="phone" class="control-label"></label>
+                    <input asp-for="phone" class="form-control" />
+                    <span asp-validation-for="phone" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="sms" class="control-label"></label>
+                    <input asp-for="sms" class="form-control" />
+                    <span asp-validation-for="sms" class="text-danger"></span>
+                </div>
+                <div class="form-group">
+                    <label asp-for="email" class="control-label"></label>
+                    <input asp-for="email" class="form-control" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="threat" class="control-label"></label>
+                    <select class="form-control" asp-for="threat" name="threat" readonly>
+                        <option>N/A</option>
+                        <option>Precipitation</option>
+                        <option>Ice</option>
+                        <option>Extream Heat</option>
+                        <option>Extream Cold</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label asp-for="severity" class="control-label"></label>
+                    <select class="form-control" asp-for="severity" name="severity" readonly>
+                        <option>N/A</option>
+                        <option>Low</option>
+                        <option>Medium</option>
+                        <option>High</option>
+                    </select>
+                </div>
+
+                <br />
+                <div class="btn-container">
+                    @* <button type="submit" asp-action="CreateNew" asp-controller="Portal" class="btn btn-primary btn-align-left">Save Site</button> *@
+                    <input type="submit" value="Save Site" asp-action="CreateNew" asp-controller="Portal" class="btn btn-primary btn-align-left" />
+                </div>
+                <div style="margin:10px; text-align: right !important;">
+                    <a asp-action="Index">Back to task list</a>
+                </div>
+                </br>
+        </form>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

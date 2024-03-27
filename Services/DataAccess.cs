@@ -1,4 +1,5 @@
 ﻿using adad.Models;
+using Google.Protobuf.WellKnownTypes;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.CodeAnalysis.Elfie.Diagnostics;
 using MySql.Data.MySqlClient;
@@ -69,7 +70,7 @@ namespace adad.Services
                     MySqlConnection conn1 = new MySqlConnection(connectionString);
                     conn1.Open();
                     MySqlCommand cmd1 = new MySqlCommand("SELECT * FROM adad.SiteModel WHERE idSite LIKE @idSiteIn", conn1);
-                    cmd1.Parameters.AddWithValue("@idPostModel", "%" + idSiteIn + "%");
+                    cmd1.Parameters.AddWithValue("@idSiteIn", idSiteIn);
                     MySqlDataReader reader1 = cmd1.ExecuteReader();
                     
                     while (reader1.Read())
@@ -99,6 +100,48 @@ namespace adad.Services
                 }
                 return foundSite;
             }
+        public int GetSiteId()
+        {
+            int nextId = 0;
+            List<SiteModel> foundSitesList = new List<SiteModel>();
+            try
+            {
+                MySqlConnection conn1 = new MySqlConnection(connectionString);
+                conn1.Open();
+                MySqlCommand cmd1 = new MySqlCommand("SELECT * FROM adad.SiteModel", conn1);
+                MySqlDataReader reader1 = cmd1.ExecuteReader();
+
+                while (reader1.Read())
+                {
+                    SiteModel foundSite = new SiteModel();
+                    if (reader1.GetValue(1).Equals(DBNull.Value)) { } else { foundSite.idSite = reader1.GetString(0); }
+                    foundSite.site_name = reader1.GetString(1);
+                    foundSite.country = reader1.GetString(2);
+                    foundSite.country_id = reader1.GetString(3);
+                    foundSite.city = reader1.GetString(4);
+                    foundSite.latitude = reader1.GetString(5);
+                    foundSite.longitude = reader1.GetString(6);
+                    foundSite.contact_name = reader1.GetString(7);
+                    foundSite.country_code = reader1.GetString(8);
+                    foundSite.phone = reader1.GetString(9);
+                    foundSite.sms = reader1.GetString(10);
+                    foundSite.email = reader1.GetString(11);
+                    foundSite.threat = reader1.GetString(12);
+                    foundSite.severity = reader1.GetString(13);
+                    foundSitesList.Add(foundSite);
+                }
+
+                reader1.Close();
+                conn1.Close();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+            string lastId = foundSitesList[foundSitesList.Count - 1].idSite;
+            nextId = Int32.Parse(lastId) + 1;
+            return nextId;
+        }
 
         public SiteModel InsertSiteDB(SiteModel siteIn)
         {
@@ -191,7 +234,7 @@ namespace adad.Services
 
                 string command = "UPDATE adad.SiteModel SET site_name = @site_name, country = @country, country_id = @country_id, city = @city, latitude = @latitude, longitude = @longitude, " +
                                                             "contact_name = @contact_name, country_code = @country_code, sms = @sms, phone = @phone, email = @email, threat = @threat, " +
-                                                            "severity = @severity, WHERE idSite LIKE @idSite";
+                                                            "severity = @severity WHERE idSite LIKE @idSite";
                 conn1.Open();
                 MySqlCommand cmd1 = new MySqlCommand(command, conn1);
 
@@ -234,6 +277,7 @@ namespace adad.Services
                 string command = "DELETE FROM adad.SiteModel WHERE idSite = @idSite";
                 conn1.Open();
                 MySqlCommand cmd1 = new MySqlCommand(command, conn1);
+                cmd1.Parameters.AddWithValue("@idSite", siteIn.idSite);
                 cmd1.ExecuteNonQuery();                
                 conn1.Close();
                 result = true;
