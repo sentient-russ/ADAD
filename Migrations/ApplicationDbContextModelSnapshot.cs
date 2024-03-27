@@ -258,10 +258,16 @@ namespace adad.Migrations
                     b.Property<string>("phone")
                         .HasColumnType("longtext");
 
+                    b.Property<string>("severity")
+                        .HasColumnType("longtext");
+
                     b.Property<string>("site_name")
                         .HasColumnType("longtext");
 
                     b.Property<string>("sms")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("threat")
                         .HasColumnType("longtext");
 
                     b.HasKey("idSite");

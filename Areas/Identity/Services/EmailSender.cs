@@ -31,6 +31,7 @@ public class EmailSender : IEmailSender
     //updated to smtp from sendgrid 4/24/2023
     public async Task Execute(string subject, string message, string toEmail)
     {
+
         var email = new MimeMessage();
         email.From.Add(MailboxAddress.Parse("cs@magnadigi.com"));
         email.To.Add(MailboxAddress.Parse(toEmail));

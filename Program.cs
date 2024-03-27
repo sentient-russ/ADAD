@@ -63,6 +63,7 @@ else
     Accuweather_Key = builder.Configuration.GetConnectionString("Accuweather_Key");
     Google_Key = builder.Configuration.GetConnectionString("Google_Key");
     Google_Maps_API_Key = builder.Configuration.GetConnectionString("Google_Maps_API_Key");
+
 }
 Environment.SetEnvironmentVariable("DbConnectionString", connectionString);
 Environment.SetEnvironmentVariable("MD_Email_Pass", MD_Email_Pass);

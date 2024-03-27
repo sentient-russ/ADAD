@@ -49,6 +49,14 @@ namespace adad.Controllers
             return View(data);
 
         }
+/*        [HttpGet]
+        [Authorize]
+        [Route("Portal/Edit/{idSite}")]
+        public async Task<IActionResult> Edit([FromRoute] string? idSite)
+        {
+            DataAccess dataAccess = new DataAccess();
+
+        }*/
     }
 }
 

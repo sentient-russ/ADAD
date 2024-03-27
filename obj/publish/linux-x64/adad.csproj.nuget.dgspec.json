@@ -44,6 +44,10 @@
         "net7.0": {
           "targetAlias": "net7.0",
           "dependencies": {
+            "GoogleApi": {
+              "target": "Package",
+              "version": "[5.3.1, )"
+            },
             "MailKit": {
               "target": "Package",
               "version": "[4.4.0, )"
@@ -52,6 +56,18 @@
               "target": "Package",
               "version": "[8.1.0, )"
             },
+            "Microsoft.AspNet.SignalR.Core": {
+              "target": "Package",
+              "version": "[2.4.3, )"
+            },
+            "Microsoft.AspNet.SignalR.JS": {
+              "target": "Package",
+              "version": "[2.4.3, )"
+            },
+            "Microsoft.AspNet.SignalR.SystemWeb": {
+              "target": "Package",
+              "version": "[2.4.3, )"
+            },
             "Microsoft.AspNetCore.Identity.EntityFrameworkCore": {
               "target": "Package",
               "version": "[7.0.17, )"
@@ -59,6 +75,14 @@
             "Microsoft.AspNetCore.Identity.UI": {
               "target": "Package",
               "version": "[7.0.17, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Client.Core": {
+              "target": "Package",
+              "version": "[7.0.17, )"
+            },
+            "Microsoft.AspNetCore.SignalR.Protocols.Json": {
+              "target": "Package",
+              "version": "[8.0.3, )"
             },
             "Microsoft.EntityFrameworkCore.SqlServer": {
               "target": "Package",

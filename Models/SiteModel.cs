@@ -23,7 +23,6 @@ namespace adad.Models
         [DisplayName("Site Name")]
         public string? site_name { get; set; } = "";
 
-
         [BindProperty(SupportsGet = true, Name = "country")]
         [DisplayName("Site Country")]
         public string? country { get; set; } = "";
@@ -64,6 +63,13 @@ namespace adad.Models
         [DisplayName("Site Email")]
         public string? email { get; set; } = "";
 
+        [BindProperty(SupportsGet = true, Name = "threat")]
+        [DisplayName("Threat")]
+        public string? threat { get; set; } = "None";
+
+        [BindProperty(SupportsGet = true, Name = "severity")]
+        [DisplayName("Severity")]
+        public string? severity { get; set; } = "Low";
 
     }
 }

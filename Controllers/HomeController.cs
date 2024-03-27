@@ -50,7 +50,7 @@ namespace adad.Controllers
                     SiteModel updateSite = allSites[i];
                     SiteModel updatedSite = await api.GetLatLong(updateSite);
                     Console.WriteLine(updatedSite);
-                    dataAccess.UpdateSiteDB(updatedSite);
+                    dataAccess.UpdateSiteLatLng(updatedSite);
                 }
 
             }
