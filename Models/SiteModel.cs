@@ -45,12 +45,13 @@ namespace adad.Models
         public string? city { get; set; } = "";
 
         [Required]
+        [Range(-100, float.MaxValue)]
         [BindProperty(SupportsGet = true, Name = "latitude")]
         [DisplayName("Site Latitude")]
         public string? latitude { get; set; } = "";
 
         [Required]
-        [Range(1, float.MaxValue)]
+        [Range(-100, float.MaxValue)]
         [BindProperty(SupportsGet = true, Name = "longitude")]
         [DisplayName("Site Longitude")]
         public string? longitude { get; set; } = "";
@@ -93,5 +94,12 @@ namespace adad.Models
         [DisplayName("Severity Level")]
         public string? severity { get; set; } = "N/A";
 
+        [BindProperty(SupportsGet = true, Name = "winddir")]
+        [DisplayName("6hrs Wind Dir.")]
+        public string? wind_direction { get; set; } = "N/F";
+
+        [BindProperty(SupportsGet = true, Name = "windsp")]
+        [DisplayName("6hrs Wind Spd.")]
+        public string? wind_speed { get; set; } = "N/F";
     }
 }

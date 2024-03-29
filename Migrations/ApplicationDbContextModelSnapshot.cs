@@ -232,42 +232,67 @@ namespace adad.Migrations
                         .HasColumnType("varchar(255)");
 
                     b.Property<string>("city")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("contact_name")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("country")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("country_code")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(3)
+                        .HasColumnType("varchar(3)");
 
                     b.Property<string>("country_id")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(2)
+                        .HasColumnType("varchar(2)");
 
                     b.Property<string>("email")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("latitude")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("longitude")
+                        .IsRequired()
                         .HasColumnType("longtext");
 
                     b.Property<string>("phone")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("varchar(11)");
 
                     b.Property<string>("severity")
                         .HasColumnType("longtext");
 
                     b.Property<string>("site_name")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("varchar(100)");
 
                     b.Property<string>("sms")
-                        .HasColumnType("longtext");
+                        .IsRequired()
+                        .HasMaxLength(11)
+                        .HasColumnType("varchar(11)");
 
                     b.Property<string>("threat")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("wind_direction")
+                        .HasColumnType("longtext");
+
+                    b.Property<string>("wind_speed")
                         .HasColumnType("longtext");
 
                     b.HasKey("idSite");

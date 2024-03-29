@@ -2,7 +2,7 @@
 
 namespace adad.Models;
 //This class is only used for the serialization of inbound lat long data using the Google Maps API.  Do not use or disturb.
-[NotMapped]
+
 public class GoogleGeoCodeResponse
 {
 

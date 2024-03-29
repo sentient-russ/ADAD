@@ -44,6 +44,8 @@ namespace adad.Services
                     foundSite.email = reader1.GetString(11);
                     foundSite.threat = reader1.GetString(12);
                     foundSite.severity = reader1.GetString(13);
+                    foundSite.wind_speed = reader1.GetString(14);
+                    foundSite.wind_direction = reader1.GetString(15);
 
                     foundSitesList.Add(foundSite);
                 }
@@ -89,6 +91,8 @@ namespace adad.Services
                         foundSite.email = reader1.GetString(11);
                         foundSite.threat = reader1.GetString(12);
                         foundSite.severity = reader1.GetString(13);
+                        foundSite.wind_speed = reader1.GetString(14);
+                        foundSite.wind_direction = reader1.GetString(15);
                 }
 
                     reader1.Close();
@@ -128,6 +132,8 @@ namespace adad.Services
                     foundSite.email = reader1.GetString(11);
                     foundSite.threat = reader1.GetString(12);
                     foundSite.severity = reader1.GetString(13);
+                    foundSite.wind_speed = reader1.GetString(14);
+                    foundSite.wind_direction = reader1.GetString(15);
                     foundSitesList.Add(foundSite);
                 }
 
@@ -151,7 +157,7 @@ namespace adad.Services
             {
                 MySqlConnection conn1 = new MySqlConnection(connectionString);
  
-                string command = "INSERT INTO adad.SiteModel (idSite, site_name, country, country_id, city, latitude, longitude, contact_name, country_code, phone, sms, email, threat, severity) VALUES (@idSite, @site_name, @country, @country_id, @city, @latitude, @longitude, @contact_name, @country_code, @phone, @sms, @email, @threat, @severity)";
+                string command = "INSERT INTO adad.SiteModel (idSite, site_name, country, country_id, city, latitude, longitude, contact_name, country_code, phone, sms, email, threat, severity, wind_speed, wind_direction) VALUES (@idSite, @site_name, @country, @country_id, @city, @latitude, @longitude, @contact_name, @country_code, @phone, @sms, @email, @threat, @severity, @wind_speed, @wind_direction)";
                 conn1.Open();
                 MySqlCommand cmd1 = new MySqlCommand(command, conn1);
                 
@@ -169,6 +175,8 @@ namespace adad.Services
                 cmd1.Parameters.AddWithValue("@phone", siteIn.phone);
                 cmd1.Parameters.AddWithValue("@threat", siteIn.threat);
                 cmd1.Parameters.AddWithValue("@severity", siteIn.severity);
+                cmd1.Parameters.AddWithValue("@wind_speed", siteIn.wind_speed);
+                cmd1.Parameters.AddWithValue("@Wind_direction", siteIn.wind_direction);
 
                 MySqlDataReader reader1 = cmd1.ExecuteReader();
 
@@ -234,7 +242,7 @@ namespace adad.Services
 
                 string command = "UPDATE adad.SiteModel SET site_name = @site_name, country = @country, country_id = @country_id, city = @city, latitude = @latitude, longitude = @longitude, " +
                                                             "contact_name = @contact_name, country_code = @country_code, sms = @sms, phone = @phone, email = @email, threat = @threat, " +
-                                                            "severity = @severity WHERE idSite LIKE @idSite";
+                                                            "severity = @severity, wind_speed = @wind_speed, wind_direction = @wind_direction WHERE idSite LIKE @idSite";
                 conn1.Open();
                 MySqlCommand cmd1 = new MySqlCommand(command, conn1);
 
@@ -252,6 +260,9 @@ namespace adad.Services
                 cmd1.Parameters.AddWithValue("@email", siteIn.email);
                 cmd1.Parameters.AddWithValue("@threat", siteIn.threat);
                 cmd1.Parameters.AddWithValue("@severity", siteIn.severity);
+                cmd1.Parameters.AddWithValue("@wind_speed", siteIn.wind_speed);
+                cmd1.Parameters.AddWithValue("@wind_direction", siteIn.wind_direction);
+
 
 
                 MySqlDataReader reader1 = cmd1.ExecuteReader();

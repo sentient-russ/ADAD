@@ -12,6 +12,7 @@ using Microsoft.AspNetCore.DataProtection.AuthenticatedEncryption;
 using Microsoft.AspNetCore.DataProtection;
 using Microsoft.AspNetCore.ResponseCompression;
 using SignalRChat.Hubs;
+using adad.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -19,6 +20,8 @@ var builder = WebApplication.CreateBuilder(args);
 builder.Services.AddControllersWithViews();
 builder.Configuration.AddEnvironmentVariables();
 builder.Services.AddSignalR();
+builder.Services.AddSingleton<WarningGeneration>();
+builder.Services.AddHostedService<WarningGeneration>();
 
 builder.Services.Configure<ForwardedHeadersOptions>(options =>
 {
