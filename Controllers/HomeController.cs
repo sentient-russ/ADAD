@@ -17,6 +17,11 @@ namespace adad.Controllers
 
         public IActionResult Index()
         {       
+            WarningGeneration warningGeneration = new WarningGeneration();
+
+
+
+            //warningGeneration.UpdateWeatherDetails();
             return View();
         }
 

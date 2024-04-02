@@ -102,6 +102,65 @@ namespace adad.Models
         [DisplayName("6hrs Wind Spd.")]
         public string? wind_speed { get; set; } = "N/F";
 
+<<<<<<< HEAD
         public bool SendWarning { get; set; }
+=======
+        [BindProperty(SupportsGet = true, Name = "update_time")]
+        [DisplayName("Update Time")]
+        public string? curr_time { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "weather_condition")]
+        [DisplayName("Current Condition")]
+        public string? curr_weather_code { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "curr_temperature")]
+        [DisplayName("Current Temp.")]
+        public string? curr_temperature { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "curr_precip")]
+        [DisplayName("Current Precipitation")]
+        public string? curr_precip { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "curr_windspeed")]
+        [DisplayName("Current Wind Speed")]
+        public string? curr_windspeed { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "curr_gusts")]
+        [DisplayName("Current Gust Speed")]
+        public string? curr_gusts { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "curr_wind_dir")]
+        [DisplayName("Current Wind Direction")]
+        public string? curr_wind_dir { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "tomorrow_weather_code")]
+        [DisplayName("Tomorrow's Condition")]
+        public string? tomorrow_weather_code { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "tomorrow_high_temp")]
+        [DisplayName("Tomorrow's High Temp.")]
+        public string? tomorrow_high_temp { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "tomorrow_low_temp")]
+        [DisplayName("Tomorrow's Low Temp.")]
+        public string? tomorrow_low_temp { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "tomorrow_precip")]
+        [DisplayName("Tomorrow's Precipitation")]
+        public string? tomorrow_precip { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "tomorrow_windspeed")]
+        [DisplayName("Tomorrow's Wind Speed")]
+        public string? tomorrow_windspeed { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "tomorrow_gusts")]
+        [DisplayName("Tomorrow's Gust Speed")]
+        public string? tomorrow_gusts { get; set; } = "";
+
+        [BindProperty(SupportsGet = true, Name = "tomorrow_wind_dir")]
+        [DisplayName("Tomorrows Wind Direction")]
+        public string? tomorrow_wind_dir { get; set; } = "";
+
+>>>>>>> 2230511 (Catching up)
     }
 }

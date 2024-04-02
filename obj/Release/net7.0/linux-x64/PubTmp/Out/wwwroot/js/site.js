@@ -31,4 +31,8 @@ connection.on("LocationData", function (siteLocationsIn) {
 
 });
 
+//contact popup
+$('#contactDialog').popup();
+$('#contactDialog2').popup();
+
 

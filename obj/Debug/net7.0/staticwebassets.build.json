@@ -1,6 +1,10 @@
 {
   "Version": 1,
+<<<<<<< HEAD
   "Hash": "MawgidnC/KYvGKbkNU2o/USlujz9wxIJLwaUGez8VbU=",
+=======
+  "Hash": "ubVvERtQCxBHdTFXId1xi3Jft2Kvzfe9us9XMzTWnJk=",
+>>>>>>> 2230511 (Catching up)
   "Source": "adad",
   "BasePath": "_content/adad",
   "Mode": "Default",
@@ -1870,7 +1874,45 @@
       "OriginalItemSpec": "wwwroot\\img\\apple.png"
     },
     {
+<<<<<<< HEAD
       "Identity": "C:\\Users\\agent\\source\\repos\\ADAD\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
+=======
+      "Identity": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\img\\weather.svg",
+      "SourceId": "adad",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\",
+      "BasePath": "_content/adad",
+      "RelativePath": "img/weather.svg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\img\\weather.svg"
+    },
+    {
+      "Identity": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\js\\popup.js",
+      "SourceId": "adad",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\",
+      "BasePath": "_content/adad",
+      "RelativePath": "js/popup.js",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\js\\popup.js"
+    },
+    {
+      "Identity": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
+>>>>>>> 2230511 (Catching up)
       "SourceId": "adad",
       "SourceType": "Discovered",
       "ContentRoot": "C:\\Users\\agent\\source\\repos\\ADAD\\wwwroot\\",

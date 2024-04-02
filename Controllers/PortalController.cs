@@ -60,6 +60,16 @@ namespace adad.Controllers
             return View(siteModel); //edit current site view
         }
 
+        [HttpGet]
+        [Authorize]
+        [Route("Portal/WeatherDetails/{idSite}")]
+        public async Task<IActionResult> WeatherDetails([FromRoute] string? idSite)
+        {
+            DataAccess dataAccess = new DataAccess();
+            SiteModel siteModel = dataAccess.GetSite(idSite);
+            return View(siteModel); //edit current site view
+        }
+
         [HttpPost]
         [Authorize]
         public async Task<IActionResult> Edit([Bind("idSite, site_name, country, country_id, city, latitude, longitude, contact_name, country_code, phone, sms, email, threat, severity")] SiteModel siteIn)

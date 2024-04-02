@@ -193,6 +193,14 @@
       "PackagePath": "staticwebassets\\img\\apple.png"
     },
     {
+      "Id": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\img\\weather.svg",
+      "PackagePath": "staticwebassets\\img\\weather.svg"
+    },
+    {
+      "Id": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\js\\popup.js",
+      "PackagePath": "staticwebassets\\js\\popup.js"
+    },
+    {
       "Id": "C:\\Users\\russe\\source\\repos\\adad\\wwwroot\\js\\signalr\\dist\\browser\\signalr.js",
       "PackagePath": "staticwebassets\\js\\signalr\\dist\\browser\\signalr.js"
     },
