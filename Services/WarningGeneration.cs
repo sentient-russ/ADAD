@@ -1,4 +1,5 @@
-﻿using adad.Models;
+﻿using adad.Controllers;
+using adad.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.Language;
 using Microsoft.DotNet.MSIdentity.Shared;
@@ -105,9 +106,21 @@ namespace adad.Services
                 siteResultModel.severity = "High";
                 
             }
+            
             siteResultModel.wind_speed = futureWindSpeeed.ToString();
             siteResultModel.wind_direction = predictedWindDirection;
-            Console.WriteLine("Test");
+            if(siteResultModel.threat != "N/A")
+            {
+                // send warning email
+                ContactDataModel newContact = new ContactDataModel();
+                EmailService email = new EmailService();
+                newContact.Email = siteResultModel.email;
+                newContact.Name = siteResultModel.contact_name;
+                newContact.Message = "The ADAD weather system detected a weather event code: " + siteResultModel.threat;
+                newContact.Subject = "Important warning from ADAD system";
+                email.SendWarningMessage(newContact);
+            }
+
             return siteResultModel;
         }
 

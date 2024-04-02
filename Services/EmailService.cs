@@ -30,5 +30,26 @@ namespace adad.Services
             smtp.Disconnect(true);
             return response;
         }
+
+        public String SendWarningMessage(ContactDataModel complexDataIn)
+        {
+            string _pass = MD_Email_Pass;
+            var email = new MimeMessage();
+            email.From.Add(MailboxAddress.Parse("cs@magnadigi.com"));
+            email.To.Add(MailboxAddress.Parse("cs@magnadigi.com"));
+            email.Subject = complexDataIn.Subject;
+            email.Body = new TextPart(MimeKit.Text.TextFormat.Html)
+            {
+                Text = complexDataIn.Message
+            };
+
+            using var smtp = new SmtpClient();
+            smtp.Connect("us2.smtp.mailhostbox.com", 587, SecureSocketOptions.StartTls);
+            smtp.Authenticate("cs@magnadigi.com", MD_Email_Pass);
+            var response = smtp.Send(email);
+            smtp.Disconnect(true);
+            return response;
+        }
+
     }
 }
