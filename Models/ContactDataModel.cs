@@ -29,7 +29,14 @@ namespace adad.Controllers
         [BindProperty(SupportsGet = true, Name = "Message")]
         public string? Message { get; set; }
 
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(1000, MinimumLength = 1)]
+        [DisplayName("Subject:")]
+        [BindProperty(SupportsGet = true, Name = "Subject")]
+        public string? Subject { get; set; }
 
+        
     }
 
 }

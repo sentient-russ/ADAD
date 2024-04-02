@@ -68,11 +68,21 @@
                 <input asp-for="sms" class="form-control" />
                 <span asp-validation-for="sms" class="text-danger"></span>
             </div>
-            <div class="form-group">
-                <label asp-for="email" class="control-label"></label>
-                <input asp-for="email" class="form-control" />
-                <span asp-validation-for="email" class="text-danger"></span>
-            </div>
+
+            <div class = "checkbox">
+                <div class="form-group">
+                    <label asp-for="email" class="control-label"></label>
+                    <input asp-for="email" class="form-control" />
+                    <span asp-validation-for="email" class="text-danger"></span>
+                </div>
+          
+                <div class="checkbox mb-3">
+                        <label asp-for="SendWarning" class="form-label">
+                            <input class="form-check-input" asp-for="SendWarning" />
+                            @Html.DisplayNameFor(m => m.SendWarning)
+                        </label>
+                    </div>
+                </div>
 
             <div class="form-group">
             <label asp-for="threat" class="control-label"></label>

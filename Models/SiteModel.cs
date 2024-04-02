@@ -101,5 +101,7 @@ namespace adad.Models
         [BindProperty(SupportsGet = true, Name = "windsp")]
         [DisplayName("6hrs Wind Spd.")]
         public string? wind_speed { get; set; } = "N/F";
+
+        public bool SendWarning { get; set; }
     }
 }
