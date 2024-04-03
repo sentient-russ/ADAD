@@ -10,13 +10,32 @@
 <center><h3>Edit Site Details</h3></center>
 
 <div class="row shadow portal-form">
-    <form asp-action="Edit" class="">
+        <form asp-action="Edit" class="">
+            <div class="form-group">
         <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input asp-for="wind_direction" class="form-control" hidden />
+            <input asp-for="wind_speed" class="form-control" hidden />
+            <input asp-for="send_warning" class="form-control" hidden />
+            <input asp-for="curr_time" class="form-control" hidden />
+            <input asp-for="curr_weather_code" class="form-control" hidden />
+            <input asp-for="curr_temperature" class="form-control" hidden />
+            <input asp-for="curr_precip" class="form-control" hidden />
+            <input asp-for="curr_windspeed" class="form-control" hidden />
+            <input asp-for="curr_gusts" class="form-control" hidden />
+            <input asp-for="curr_wind_dir" class="form-control" hidden />
+            <input asp-for="tomorrow_weather_code" class="form-control" hidden />
+            <input asp-for="tomorrow_high_temp" class="form-control" hidden />
+            <input asp-for="tomorrow_low_temp" class="form-control" hidden />
+            <input asp-for="tomorrow_precip" class="form-control" hidden />
+            <input asp-for="tomorrow_windspeed" class="form-control" hidden />
+            <input asp-for="tomorrow_gusts" class="form-control" hidden />
+            <input asp-for="tomorrow_wind_dir" class="form-control" hidden />
+            </div>
         <div class="col-md-12">
             <div class="form-group">
                 <label asp-for="idSite" class="control-label"></label>
                 <input asp-for="idSite" class="form-control" readonly />
-                    <span asp-validation-for="idSite" class="text-danger"></span>
+                <span asp-validation-for="idSite" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <label asp-for="site_name" class="control-label"></label>
@@ -68,22 +87,19 @@
                 <input asp-for="sms" class="form-control" />
                 <span asp-validation-for="sms" class="text-danger"></span>
             </div>
-
-            <div class = "checkbox">
-                <div class="form-group">
+            <div class="checkbox-container">
+                <div>
                     <label asp-for="email" class="control-label"></label>
                     <input asp-for="email" class="form-control" />
                     <span asp-validation-for="email" class="text-danger"></span>
+                </div>          
+                <div class="checkbox-warning">
+                    <label asp-for="send_warning" class="form-label">
+                        <input class="form-check-input" asp-for="send_warning" />
+                        @Html.DisplayNameFor(m => m.send_warning)
+                    </label>
                 </div>
-          
-                <div class="checkbox mb-3">
-                        <label asp-for="SendWarning" class="form-label">
-                            <input class="form-check-input" asp-for="SendWarning" />
-                            @Html.DisplayNameFor(m => m.SendWarning)
-                        </label>
-                    </div>
-                </div>
-
+            </div>
             <div class="form-group">
             <label asp-for="threat" class="control-label"></label>
             <select class="form-control" asp-for="threat" name="threat">
@@ -111,7 +127,7 @@
                     <button asp-action="Edit" asp-controller="Portal" class="btn btn-primary btn-align-left">Save Changes</button>
                 </div>
                 <div style="margin:10px; text-align: right !important;">
-                    <a asp-action="Index">Back to task list</a>
+                    <a asp-action="Index">Back to Site List</a>
                 </div>
             </br>
     </form>

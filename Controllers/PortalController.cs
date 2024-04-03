@@ -72,7 +72,7 @@ namespace adad.Controllers
 
         [HttpPost]
         [Authorize]
-        public async Task<IActionResult> Edit([Bind("idSite, site_name, country, country_id, city, latitude, longitude, contact_name, country_code, phone, sms, email, threat, severity")] SiteModel siteIn)
+        public async Task<IActionResult> Edit([Bind("idSite, site_name, country, country_id, city, latitude, longitude, contact_name, country_code, phone, sms, email, threat, severity, send_warning, wind_direction, wind_speed, send_warning, curr_time, curr_weather_code, curr_temperature, curr_precip, curr_windspeed, curr_gusts, curr_wind_dir, tomorrow_weather_code, tomorrow_high_temp, tomorrow_low_temp, tomorrow_precip, tomorrow_windspeed, tomorrow_gusts, tomorrow_wind_dir")] SiteModel siteIn)
         {
             
             //save updated site

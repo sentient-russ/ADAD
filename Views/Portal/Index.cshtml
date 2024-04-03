@@ -36,14 +36,12 @@
                 {
                     @foreach(var site in Model.sites)
                     {
-
-                        <tr class="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)" id="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)">
-                           
+                        <tr class="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)" id="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)">                           
                             @{
                                 int length = ((int)site.idSite.Length) - 3;
                                 if(site.site_name.Length > 30)
                                 {
-                                    site.site_name = site.site_name.Substring(0, 30) + ".....";
+                                    site.site_name = site.site_name.Substring(0, 25) + ".....";
                                 }
                             }
                             <td>@site.idSite.Substring(3, length)</td>
@@ -51,8 +49,7 @@
                             <td class="hide-column">@site.country</td>
                             <td class="hide-column">@site.city</td>
                             <td>@site.threat</td>
-                            <td>@site.severity</td>
-                   
+                            <td>@site.severity</td>                   
                             <td style="text-align: center !important;">
                                 <div class="btn-group btn-group-sm">
                                     <a asp-controller="Portal" asp-action="Edit" asp-route-id="@site.idSite.Substring(3,length)"
@@ -60,10 +57,8 @@
                                     <a asp-controller="Portal" asp-action="Delete" asp-route-id="@site.idSite.Substring(3,length)"
                                        class="btn btn-primary btn-danger">Delete</a>
                                 </div>
-                            </td>
-                          
-                        </tr>
-                         
+                            </td>                          
+                        </tr>                         
                         <dialog class="modal-@site.idSite.Substring(3,site.idSite.Length - 3)" id="modal-@site.idSite.Substring(3,site.idSite.Length - 3)" style="padding: 1em;
                                                                                                                                                                   min-width: 375px;
                                                                                                                                                                   max-width: 375px;
@@ -71,17 +66,15 @@
                                                                                                                                                                   box-shadow: 0 0 10px #333;
                                                                                                                                                                   border-radius: 15px 15px 15px 15px;
                                                                                                                                                                   border: .5px solid black;">
+                                <center><img src="~/img/weather.svg" style="max-height: 100px;"/></center>
                                 <h2>Weather Details</h2>
                                 <h3 style="text-align: left; padding-top:10px;">@site.site_name</h3>
                                 <p style="text-align: left;">As of: @site.curr_time</p>
                             <hr>
-                                <h5 style="text-align: left;">Current Conditions</h5>
-                            <hr>
+                                <strong><h5 style="text-align: left;">Current Conditions</h5></strong>
+                                <p style="text-align: left;">@site.curr_weather_code</p>                            
                             <div class="modal-container">
                                 <div class="modal-col1">
-                                    <div class="modal-cell">
-                                        Conditions: 
-                                    </div>
                                     <div class="modal-cell">
                                         Temprature: 
                                     </div>
@@ -97,9 +90,6 @@
                                  </div>
                                  <div class="modal-col2">
                                     <div class="modal-cell">
-                                        @site.curr_weather_code
-                                    </div>
-                                    <div class="modal-cell">
                                         @site.curr_temperature &deg;F
                                     </div>
                                     <div class="modal-cell">
@@ -114,13 +104,10 @@
                                 </div>
                             </div>
                             <hr>
-                                <h5 style="text-align: left;">Tomorrow's Conditions</h5>
-                            <hr>
+                                <strong><h5 style="text-align: left;">Tomorrow's Conditions</h5></strong>
+                                <p style="text-align: left;">@site.tomorrow_weather_code</p>                            
                                 <div class="modal-container">
                                 <div class="modal-col1">
-                                    <div class="modal-cell">
-                                        Conditions: 
-                                    </div>
                                     <div class="modal-cell">
                                         High Temp: 
                                     </div>
@@ -139,9 +126,6 @@
                                  </div>
                                  <div class="modal-col2">
                                     <div class="modal-cell">
-                                        @site.tomorrow_weather_code
-                                    </div>
-                                    <div class="modal-cell">
                                         @site.tomorrow_high_temp &deg;F
                                     </div>
                                     <div class="modal-cell">
@@ -159,15 +143,19 @@
                                 </div>
                             </div>
                             <hr>
-                            <br>  
-                            <button class="button close-modal-@site.idSite.Substring(3,site.idSite.Length - 3)" id="close-modal-@site.idSite.Substring(3,site.idSite.Length - 3)" style="padding-bottom:5px;
+                            <div class="button close-modal-@site.idSite.Substring(3,site.idSite.Length - 3)" id="close-modal-@site.idSite.Substring(3,site.idSite.Length - 3)" style="padding-bottom:5px;
                                                                                                                                                                   height:40px;
                                                                                                                                                                   width: 100px; font-size: 1.25rem;
                                                                                                                                                                   background-color: #5b7eb1e6;
                                                                                                                                                                   color: whitesmoke;
                                                                                                                                                                   border-radius: 5px 5px 5px 5px;
                                                                                                                                                                   border: .1px solid black;
-                                                                                                                                                                  ">Close</button>
+                                                                                                                                                                  padding:5px;
+                                                                                                                                                                  padding-bottom: 0;
+                                                                                                                                                                  padding-top: 2.5px;                  
+                                                                                                                                                                  margin-left:auto;
+                                                                                                                                                                  margin-right:auto;
+                                                                                                                                                                  ">Close</div>
                         </dialog>
                     }
                 } else
@@ -234,14 +222,16 @@
         @foreach(var site in Model.sites)
         {
              <text>
-                const modal_@site.idSite.Substring(3, site.idSite.Length - 3) = document.querySelector('.modal-@site.idSite.Substring(3,site.idSite.Length - 3)');
-                const openModal_@site.idSite.Substring(3, site.idSite.Length - 3) = document.querySelector('.open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)');
-                const closeModal_@site.idSite.Substring(3, site.idSite.Length - 3) = document.querySelector('.close-modal-@site.idSite.Substring(3,site.idSite.Length - 3)');
-                openModal_@(site.idSite.Substring(3, site.idSite.Length - 3)).addEventListener('click', () => {
-                modal_@(site.idSite.Substring(3, site.idSite.Length - 3)).showModal();              
+                const modal_@site.idSite.Substring(3, site.idSite.Length - 3) = document.querySelector('#modal-@site.idSite.Substring(3,site.idSite.Length - 3)');
+                const openModal_@site.idSite.Substring(3, site.idSite.Length - 3) = document.querySelector('#open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)');
+                const closeModal_@site.idSite.Substring(3, site.idSite.Length - 3) = document.querySelector('#close-modal-@site.idSite.Substring(3,site.idSite.Length - 3)');
+                openModal_@(site.idSite.Substring(3, site.idSite.Length - 3)).addEventListener('click', () => {                         
+                    modal_@(site.idSite.Substring(3, site.idSite.Length - 3)).showModal();              
                 })
+                
+                openModal_@(site.idSite.Substring(3, site.idSite.Length - 3)).removeEventListener
                 closeModal_@(site.idSite.Substring(3, site.idSite.Length - 3)).addEventListener('click', () => {
-                modal_@(site.idSite.Substring(3, site.idSite.Length - 3)).close();
+                    modal_@(site.idSite.Substring(3, site.idSite.Length - 3)).close();
                 })
 
              </text>       

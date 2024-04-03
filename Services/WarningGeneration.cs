@@ -1,11 +1,8 @@
-<<<<<<< HEAD
 ﻿using adad.Controllers;
 using adad.Models;
-=======
 ﻿using adad.Migrations;
 using adad.Models;
 using Azure;
->>>>>>> 2230511 (Catching up)
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Razor.Language;
 using Microsoft.DotNet.MSIdentity.Shared;
@@ -136,7 +133,7 @@ namespace adad.Services
             
             siteResultModel.wind_speed = futureWindSpeeed.ToString();
             siteResultModel.wind_direction = predictedWindDirection;
-            if(siteResultModel.threat != "N/A")
+            if(siteResultModel.threat != "N/A" && siteResultModel.send_warning)
             {
                 // send warning email
                 ContactDataModel newContact = new ContactDataModel();

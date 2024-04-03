@@ -294,6 +294,9 @@ namespace adad.Migrations
                         .HasMaxLength(11)
                         .HasColumnType("varchar(11)");
 
+                    b.Property<bool>("send_warning")
+                        .HasColumnType("tinyint(1)");
+
                     b.Property<string>("severity")
                         .HasColumnType("longtext");
 

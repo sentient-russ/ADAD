@@ -56,7 +56,6 @@ if (environ == "Production")
     Accuweather_Key = Environment.GetEnvironmentVariable("Accuweather_Key");
     Google_Key = Environment.GetEnvironmentVariable("Google_Key");
     Google_Maps_API_Key = Environment.GetEnvironmentVariable("Google_Maps_API_Key");
-
 }
 else
 {

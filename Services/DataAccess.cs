@@ -59,7 +59,8 @@ namespace adad.Services
                     foundSite.tomorrow_precip = reader1.GetString(26);
                     foundSite.tomorrow_weather_code = reader1.GetString(27);
                     foundSite.tomorrow_wind_dir = reader1.GetString(28);
-                    foundSite.tomorrow_windspeed = reader1.GetString(29);                  
+                    foundSite.tomorrow_windspeed = reader1.GetString(29);
+                    foundSite.send_warning = reader1.GetBoolean(30);
                     
 
                     foundSitesList.Add(foundSite);
@@ -122,6 +123,7 @@ namespace adad.Services
                         foundSite.tomorrow_weather_code = reader1.GetString(27);
                         foundSite.tomorrow_wind_dir = reader1.GetString(28);
                         foundSite.tomorrow_windspeed = reader1.GetString(29);
+                        foundSite.send_warning = reader1.GetBoolean(30);
                 }
 
                     reader1.Close();
@@ -177,6 +179,7 @@ namespace adad.Services
                     foundSite.tomorrow_weather_code = reader1.GetString(27);
                     foundSite.tomorrow_wind_dir = reader1.GetString(28);
                     foundSite.tomorrow_windspeed = reader1.GetString(29);
+                    foundSite.send_warning = reader1.GetBoolean(30);
                     foundSitesList.Add(foundSite);
                 }
 
@@ -201,9 +204,9 @@ namespace adad.Services
                 MySqlConnection conn1 = new MySqlConnection(connectionString);
  
                 string command = "INSERT INTO adad.SiteModel (idSite, site_name, country, country_id, city, latitude, longitude, contact_name, country_code, phone, sms, email, threat, severity, wind_speed, wind_direction," +
-                    "curr_time, curr_weather_code, curr_temperature, curr_precip, curr_windspeed, curr_gusts, curr_wind_dir, tomorrow_weather_code, tomorrow_high_temp, tomorrow_low_temp, tomorrow_precip, tomorrow_windspeed, tomorrow_gusts, tomorrow_wind_dir) " +
+                    "curr_time, curr_weather_code, curr_temperature, curr_precip, curr_windspeed, curr_gusts, curr_wind_dir, tomorrow_weather_code, tomorrow_high_temp, tomorrow_low_temp, tomorrow_precip, tomorrow_windspeed, tomorrow_gusts, tomorrow_wind_dir, send_warning) " +
                     "VALUES (@idSite, @site_name, @country, @country_id, @city, @latitude, @longitude, @contact_name, @country_code, @phone, @sms, @email, @threat, @severity, @wind_speed, @wind_direction, " +
-                    "@curr_time, @curr_weather_code, @curr_temperature, @curr_precip, @curr_windspeed, @curr_gusts, @curr_wind_dir, @tomorrow_weather_code, @tomorrow_high_temp, @tomorrow_low_temp, @tomorrow_precip, @tomorrow_windspeed, @tomorrow_gusts, @tomorrow_wind_dir)";
+                    "@curr_time, @curr_weather_code, @curr_temperature, @curr_precip, @curr_windspeed, @curr_gusts, @curr_wind_dir, @tomorrow_weather_code, @tomorrow_high_temp, @tomorrow_low_temp, @tomorrow_precip, @tomorrow_windspeed, @tomorrow_gusts, @tomorrow_wind_dir, @send_warning)";
                 conn1.Open();
                 MySqlCommand cmd1 = new MySqlCommand(command, conn1);
                 
@@ -237,6 +240,7 @@ namespace adad.Services
                 cmd1.Parameters.AddWithValue("@tomorrow_windspeed", siteIn.tomorrow_windspeed);
                 cmd1.Parameters.AddWithValue("@tomorrow_gusts", siteIn.tomorrow_gusts);
                 cmd1.Parameters.AddWithValue("@tomorrow_wind_dir", siteIn.tomorrow_wind_dir);
+                cmd1.Parameters.AddWithValue("@send_warning", siteIn.send_warning);
 
                 MySqlDataReader reader1 = cmd1.ExecuteReader();
 
@@ -291,6 +295,7 @@ namespace adad.Services
                 cmd1.Parameters.AddWithValue("@tomorrow_windspeed", siteIn.tomorrow_windspeed);
                 cmd1.Parameters.AddWithValue("@tomorrow_gusts", siteIn.tomorrow_gusts);
                 cmd1.Parameters.AddWithValue("@tomorrow_wind_dir", siteIn.tomorrow_wind_dir);
+                cmd1.Parameters.AddWithValue("@send_warning", siteIn.send_warning);
 
 
                 MySqlDataReader reader1 = cmd1.ExecuteReader();
@@ -320,7 +325,7 @@ namespace adad.Services
                                                             "curr_weather_code = @curr_weather_code, curr_temperature = @curr_temperature, curr_precip = @curr_precip, curr_windspeed = @curr_windspeed, " +
                                                             "curr_gusts = @curr_gusts, curr_wind_dir = @curr_wind_dir, tomorrow_weather_code = @tomorrow_weather_code, tomorrow_high_temp = @tomorrow_high_temp, " +
                                                             "tomorrow_low_temp = @tomorrow_low_temp, tomorrow_precip = @tomorrow_precip, tomorrow_windspeed = @tomorrow_windspeed, tomorrow_gusts = @tomorrow_gusts, " +
-                                                            "tomorrow_wind_dir = @tomorrow_wind_dir WHERE idSite LIKE @idSite";
+                                                            "tomorrow_wind_dir = @tomorrow_wind_dir, send_warning = @send_warning WHERE idSite LIKE @idSite";
 
 
                 conn1.Open();
@@ -356,6 +361,7 @@ namespace adad.Services
                 cmd1.Parameters.AddWithValue("@tomorrow_windspeed", siteIn.tomorrow_windspeed);
                 cmd1.Parameters.AddWithValue("@tomorrow_gusts", siteIn.tomorrow_gusts);
                 cmd1.Parameters.AddWithValue("@tomorrow_wind_dir", siteIn.tomorrow_wind_dir);
+                cmd1.Parameters.AddWithValue("@send_warning", siteIn.send_warning);
 
                 MySqlDataReader reader1 = cmd1.ExecuteReader();
 

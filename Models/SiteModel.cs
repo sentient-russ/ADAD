@@ -98,18 +98,19 @@ namespace adad.Models
         [DisplayName("6hrs Wind Dir.")]
         public string? wind_direction { get; set; } = "N/F";
 
-        [BindProperty(SupportsGet = true, Name = "windsp")]
+        [BindProperty(SupportsGet = true, Name = "windspeed")]
         [DisplayName("6hrs Wind Spd.")]
         public string? wind_speed { get; set; } = "N/F";
 
-<<<<<<< HEAD
-        public bool SendWarning { get; set; }
-=======
-        [BindProperty(SupportsGet = true, Name = "update_time")]
+        [BindProperty(SupportsGet = true, Name = "send_warning")]
+        [DisplayName("Email this address in the event of any threat.")]
+        public bool send_warning { get; set; } = false;
+
+        [BindProperty(SupportsGet = true, Name = "curr_time")]
         [DisplayName("Update Time")]
         public string? curr_time { get; set; } = "";
 
-        [BindProperty(SupportsGet = true, Name = "weather_condition")]
+        [BindProperty(SupportsGet = true, Name = "curr_weather_code")]
         [DisplayName("Current Condition")]
         public string? curr_weather_code { get; set; } = "";
 
@@ -161,6 +162,6 @@ namespace adad.Models
         [DisplayName("Tomorrows Wind Direction")]
         public string? tomorrow_wind_dir { get; set; } = "";
 
->>>>>>> 2230511 (Catching up)
+
     }
 }

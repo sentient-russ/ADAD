@@ -191,3 +191,22 @@ width: 100%;
     justify-content: left;
     font-size: calc(100%);
 }
+.portal-form{
+    max-width: 600px;
+    margin-right:auto;
+    margin-left: auto;
+}
+
+.checkbox-container {
+    display: flex;
+    text-align: left;
+    justify-content: space-between;
+    flex-direction: column;
+    padding-bottom: 0 !important;
+}
+.checkbox-warning{
+    display:flex;
+    justify-content: start;
+    text-align:left;
+    padding-left: 2.5px;
+}
