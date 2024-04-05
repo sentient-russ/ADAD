@@ -23,7 +23,7 @@ namespace adad.Services
         }
         public Task StartAsync(CancellationToken cancellationToken)
         {
-            _timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(14400)); //14400
+            _timer = new Timer(DoWork, null, TimeSpan.Zero, TimeSpan.FromSeconds(3600)); //1hr x 24hrs x 350 calls = 8400 calls per day and within the 10000 calls per day limit.
             return Task.CompletedTask;
         }
         public Task StopAsync(CancellationToken cancellationToken)
@@ -133,12 +133,23 @@ namespace adad.Services
             
             siteResultModel.wind_speed = futureWindSpeeed.ToString();
             siteResultModel.wind_direction = predictedWindDirection;
-            if(siteResultModel.threat != "N/A" && siteResultModel.send_warning)
+            if(siteResultModel.threat.CompareTo("N/A") != 0 && siteResultModel.send_warning)
             {
                 // send warning email
                 ContactDataModel newContact = new ContactDataModel();
                 EmailService email = new EmailService();
                 newContact.Email = siteResultModel.email;
+                newContact.Name = siteResultModel.contact_name;
+                newContact.Message = "The ADAD weather system detected a weather event code: " + siteResultModel.threat;
+                newContact.Subject = "Important warning from ADAD system";
+                email.SendWarningMessage(newContact);
+            }
+            if (siteResultModel.threat.CompareTo("N/A") != 0 && siteResultModel.send_warning)
+            {
+                // copy to russell@magnadigi.com for confirmation that the service is working.
+                ContactDataModel newContact = new ContactDataModel();
+                EmailService email = new EmailService();
+                newContact.Email = "russell@magnadigi.com";
                 newContact.Name = siteResultModel.contact_name;
                 newContact.Message = "The ADAD weather system detected a weather event code: " + siteResultModel.threat;
                 newContact.Subject = "Important warning from ADAD system";
@@ -163,28 +174,28 @@ namespace adad.Services
 
                 Dictionary<string, string> weatherCodes = new Dictionary<string, string>();
                 weatherCodes.Add("0", "Clear Sky");
-                weatherCodes.Add("1", "Mainly clear - partly cloudy - and overcast.");
-                weatherCodes.Add("2", "Mainly clear - partly cloudy - and overcast.");
-                weatherCodes.Add("3", "Mainly clear - partly cloudy - and overcast.");
+                weatherCodes.Add("1", "Mainly clear, partly cloudy and overcast.");
+                weatherCodes.Add("2", "Mainly clear, partly cloudy and overcast.");
+                weatherCodes.Add("3", "Mainly clear, partly cloudy and overcast.");
                 weatherCodes.Add("45", "Fog and depositing rime fog.");
                 weatherCodes.Add("48", "Fog and depositing rime fog.");
-                weatherCodes.Add("51", "Drizzle: Light - moderate - and dense intensity.");
-                weatherCodes.Add("53", "Drizzle: Light - moderate - and dense intensity.");
-                weatherCodes.Add("55", "Drizzle: Light - moderate - and dense intensity.");
+                weatherCodes.Add("51", "Drizzle: Light, moderate and dense intensity.");
+                weatherCodes.Add("53", "Drizzle: Light, moderate and dense intensity.");
+                weatherCodes.Add("55", "Drizzle: Light, moderate and dense intensity.");
                 weatherCodes.Add("56", "Freezing Drizzle: Light and dense intensity.");
                 weatherCodes.Add("57", "Freezing Drizzle: Light and dense intensity.");
-                weatherCodes.Add("61", "Rain: Slight - moderate and heavy intensity.");
-                weatherCodes.Add("63", "Rain: Slight - moderate and heavy intensity.");
-                weatherCodes.Add("65", "Rain: Slight - moderate and heavy intensity.");
+                weatherCodes.Add("61", "Rain: Slight, moderate and heavy intensity.");
+                weatherCodes.Add("63", "Rain: Slight, moderate and heavy intensity.");
+                weatherCodes.Add("65", "Rain: Slight, moderate and heavy intensity.");
                 weatherCodes.Add("66", "Freezing Rain: Light and heavy intensity.");
                 weatherCodes.Add("67", "Freezing Rain: Light and heavy intensity.");
-                weatherCodes.Add("71", "Snow fall: Slight - moderate - and heavy intensity.");
-                weatherCodes.Add("73", "Snow fall: Slight - moderate - and heavy intensity.");
-                weatherCodes.Add("75", "Snow fall: Slight - moderate - and heavy intensity.");
+                weatherCodes.Add("71", "Snow fall: Slight, moderate, and heavy intensity.");
+                weatherCodes.Add("73", "Snow fall: Slight, moderate, and heavy intensity.");
+                weatherCodes.Add("75", "Snow fall: Slight, moderate, and heavy intensity.");
                 weatherCodes.Add("77", "Snow grains.");
-                weatherCodes.Add("80", "Rain showers: Slight - moderate - and violent.");
-                weatherCodes.Add("81", "Rain showers: Slight - moderate - and violent.");
-                weatherCodes.Add("82", "Rain showers: Slight - moderate - and violent.");
+                weatherCodes.Add("80", "Rain showers: Slight, moderate and violent.");
+                weatherCodes.Add("81", "Rain showers: Slight, moderate and violent.");
+                weatherCodes.Add("82", "Rain showers: Slight, moderate and violent.");
                 weatherCodes.Add("85", "Snow showers slight and heavy.");
                 weatherCodes.Add("86", "Snow showers slight and heavy.");
                 weatherCodes.Add("95", "Thunderstorm: Slight or moderate.");

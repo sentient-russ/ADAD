@@ -9,13 +9,14 @@
 }
 <div class="text-center">
         <h1 class="display-4">A.D.A.D.</h1>
-        <p><span class="portal-user-info">welcomes @Html.DisplayFor(data => data.FirstName) @Html.DisplayFor(data => data.LastName)!</span></p>
+        <p><span class="portal-user-info" style="font-weight:600; padding-top:5px; color: blue; font-size: 1.2em;">welcomes @Html.DisplayFor(data => data.FirstName) @Html.DisplayFor(data => data.LastName)!</span></p>
         <div class="map-container">
         <div id="map"></div>
        </div>
        <br />
        <form>
-        <div class="btn-container">
+        <div class="btn-container" style="display:flex; justify-content:space-between;">
+            <span style="font-weight:600; padding-top:5px; color: blue; font-size: 1.2em;">*Click on any site in this list to view current and future weather conditions!</span>
             <button asp-action="Create" asp-controller="Portal" class="btn btn-primary btn-align-left">Add New Site</button>
         </div>
            
@@ -36,7 +37,7 @@
                 {
                     @foreach(var site in Model.sites)
                     {
-                        <tr class="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)" id="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)">                           
+                        <tr >                           
                             @{
                                 int length = ((int)site.idSite.Length) - 3;
                                 if(site.site_name.Length > 30)
@@ -44,24 +45,28 @@
                                     site.site_name = site.site_name.Substring(0, 25) + ".....";
                                 }
                             }
-                            <td>@site.idSite.Substring(3, length)</td>
-                            <td class="hide-column">@site.site_name</td>
-                            <td class="hide-column">@site.country</td>
-                            <td class="hide-column">@site.city</td>
-                            <td>@site.threat</td>
-                            <td>@site.severity</td>                   
+
+                            <td class="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)" id="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)">@site.idSite.Substring(3, length)</td>
+                            <td class="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td2 hide-column" id="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td2" >@site.site_name</td>
+                            <td class="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td3 hide-column" id="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td3" >@site.country</td>
+                            <td class="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td4 hide-column" id="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td4" >@site.city</td>
+                            <td class="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td4" id="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td5" >@site.threat</td>
+                            <td class="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td4" id="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td6" >@site.severity</td>                   
                             <td style="text-align: center !important;">
                                 <div class="btn-group btn-group-sm">
                                     <a asp-controller="Portal" asp-action="Edit" asp-route-id="@site.idSite.Substring(3,length)"
                                     class="btn btn-primary">Edit</a>
                                     <a asp-controller="Portal" asp-action="Delete" asp-route-id="@site.idSite.Substring(3,length)"
-                                       class="btn btn-primary btn-danger">Delete</a>
+                                       class="btn btn-primary btn-danger"  onclick="return confirm('Are you sure you want to delete site : @site.idSite.Substring(3,site.idSite.Length - 3)')">Delete</a>
                                 </div>
                             </td>                          
                         </tr>                         
                         <dialog class="modal-@site.idSite.Substring(3,site.idSite.Length - 3)" id="modal-@site.idSite.Substring(3,site.idSite.Length - 3)" style="padding: 1em;
-                                                                                                                                                                  min-width: 375px;
+                                                                                                                                                                  min-width: 355px;
                                                                                                                                                                   max-width: 375px;
+                                                                                                                                                                  padding-top: 2.5px;
+                                                                                                                                                                  padding-bottom:2.5px;
+                                                                                                                                                                  overflow:hidden;
                                                                                                                                                                   border-radius: 10px 10px 10px 10px;
                                                                                                                                                                   box-shadow: 0 0 10px #333;
                                                                                                                                                                   border-radius: 15px 15px 15px 15px;
@@ -143,7 +148,7 @@
                                 </div>
                             </div>
                             <hr>
-                            <div class="button close-modal-@site.idSite.Substring(3,site.idSite.Length - 3)" id="close-modal-@site.idSite.Substring(3,site.idSite.Length - 3)" style="padding-bottom:5px;
+                            <div class="button close-button close-modal-@site.idSite.Substring(3,site.idSite.Length - 3)" id="close-modal-@site.idSite.Substring(3,site.idSite.Length - 3)" style="padding-bottom:5px;
                                                                                                                                                                   height:40px;
                                                                                                                                                                   width: 100px; font-size: 1.25rem;
                                                                                                                                                                   background-color: #5b7eb1e6;
@@ -222,18 +227,43 @@
         @foreach(var site in Model.sites)
         {
              <text>
+                <!-- td1 -->
                 const modal_@site.idSite.Substring(3, site.idSite.Length - 3) = document.querySelector('#modal-@site.idSite.Substring(3,site.idSite.Length - 3)');
                 const openModal_@site.idSite.Substring(3, site.idSite.Length - 3) = document.querySelector('#open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)');
                 const closeModal_@site.idSite.Substring(3, site.idSite.Length - 3) = document.querySelector('#close-modal-@site.idSite.Substring(3,site.idSite.Length - 3)');
                 openModal_@(site.idSite.Substring(3, site.idSite.Length - 3)).addEventListener('click', () => {                         
-                    modal_@(site.idSite.Substring(3, site.idSite.Length - 3)).showModal();              
-                })
-                
+                    modal_@(site.idSite.Substring(3, site.idSite.Length - 3)).showModal();
+                })                
                 openModal_@(site.idSite.Substring(3, site.idSite.Length - 3)).removeEventListener
                 closeModal_@(site.idSite.Substring(3, site.idSite.Length - 3)).addEventListener('click', () => {
                     modal_@(site.idSite.Substring(3, site.idSite.Length - 3)).close();
                 })
 
+                <!-- td2 -->
+                const openModal_@site.idSite.Substring(3, site.idSite.Length - 3)td2 = document.querySelector('#open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td2');
+                openModal_@(site.idSite.Substring(3, site.idSite.Length - 3))td2.addEventListener('click', () => {                         
+                    modal_@(site.idSite.Substring(3, site.idSite.Length - 3)).showModal();
+                }) 
+                <!-- td3 -->
+                const openModal_@site.idSite.Substring(3, site.idSite.Length - 3)td3 = document.querySelector('#open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td3');
+                openModal_@(site.idSite.Substring(3, site.idSite.Length - 3))td3.addEventListener('click', () => {                         
+                    modal_@(site.idSite.Substring(3, site.idSite.Length - 3)).showModal();
+                })
+                <!-- td4 -->
+                const openModal_@site.idSite.Substring(3, site.idSite.Length - 3)td4 = document.querySelector('#open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td4');
+                openModal_@(site.idSite.Substring(3, site.idSite.Length - 3))td4.addEventListener('click', () => {                         
+                    modal_@(site.idSite.Substring(3, site.idSite.Length - 3)).showModal();
+                })
+                <!-- td5 -->
+                const openModal_@site.idSite.Substring(3, site.idSite.Length - 3)td5 = document.querySelector('#open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td5');
+                openModal_@(site.idSite.Substring(3, site.idSite.Length - 3))td5.addEventListener('click', () => {                         
+                    modal_@(site.idSite.Substring(3, site.idSite.Length - 3)).showModal();
+                })
+                <!-- td6 -->
+                const openModal_@site.idSite.Substring(3, site.idSite.Length - 3)td6 = document.querySelector('#open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td6');
+                openModal_@(site.idSite.Substring(3, site.idSite.Length - 3))td6.addEventListener('click', () => {                         
+                    modal_@(site.idSite.Substring(3, site.idSite.Length - 3)).showModal();
+                })
              </text>       
         }
     }

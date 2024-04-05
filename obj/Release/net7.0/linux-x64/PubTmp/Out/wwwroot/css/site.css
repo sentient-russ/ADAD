@@ -4,17 +4,7 @@ html {
     min-height: 100%;
     text-decoration: none;
 }
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
 
-}
-@media(max-width: 700px){
-    .hide-column {
-        display: none;
-    }
-}
 .btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
   box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
 }
@@ -64,8 +54,8 @@ a {
     flex-direction:row;
     justify-content:center;
 }
-.portal-form{
-    max-width: 98%;
+.portal-form {
+    max-width: 95%;
     justify-content: left;
     margin-left: 5%;
     margin-right: 5%;
@@ -73,6 +63,7 @@ a {
     border: solid 1px;
     border-radius: 6px;
     border-color: #313030ac;
+    margin-bottom: 100px;
 }
 .btn-primary {
     color: #fff;
@@ -209,4 +200,28 @@ width: 100%;
     justify-content: start;
     text-align:left;
     padding-left: 2.5px;
+}
+dialog {
+    max-width: 95%;
+    max-height: fit-content;
+
+}
+.close-button{
+    margin-bottom:5px;
+}
+@media (min-width: 768px) {
+    html {
+        font-size: 16px;
+    }
+
+}
+
+@media(max-width: 700px) {
+    .hide-column {
+        display: none;
+    }
+    dialog {
+        max-width: 95%;
+        min-height: 98%;
+    }
 }

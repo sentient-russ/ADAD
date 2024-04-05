@@ -19,8 +19,6 @@ namespace adad.Controllers
         {       
             WarningGeneration warningGeneration = new WarningGeneration();
 
-
-
             //warningGeneration.UpdateWeatherDetails();
             return View();
         }

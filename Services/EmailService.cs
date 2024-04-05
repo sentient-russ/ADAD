@@ -36,7 +36,7 @@ namespace adad.Services
             string _pass = MD_Email_Pass;
             var email = new MimeMessage();
             email.From.Add(MailboxAddress.Parse("cs@magnadigi.com"));
-            email.To.Add(MailboxAddress.Parse("cs@magnadigi.com"));
+            email.To.Add(MailboxAddress.Parse(complexDataIn.Email));
             email.Subject = complexDataIn.Subject;
             email.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
@@ -45,7 +45,7 @@ namespace adad.Services
 
             using var smtp = new SmtpClient();
             smtp.Connect("us2.smtp.mailhostbox.com", 587, SecureSocketOptions.StartTls);
-            smtp.Authenticate("cs@magnadigi.com", MD_Email_Pass);
+            smtp.Authenticate("cs@magnadigi.com", _pass);
             var response = smtp.Send(email);
             smtp.Disconnect(true);
             return response;
