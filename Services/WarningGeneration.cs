@@ -133,17 +133,6 @@ namespace adad.Services
             
             siteResultModel.wind_speed = futureWindSpeeed.ToString();
             siteResultModel.wind_direction = predictedWindDirection;
-            if(siteResultModel.threat.CompareTo("N/A") != 0 && siteResultModel.send_warning)
-            {
-                // send warning email
-                ContactDataModel newContact = new ContactDataModel();
-                EmailService email = new EmailService();
-                newContact.Email = siteResultModel.email;
-                newContact.Name = siteResultModel.contact_name;
-                newContact.Message = "The ADAD weather system detected a weather event code: " + siteResultModel.threat;
-                newContact.Subject = "Important warning from ADAD system";
-                email.SendWarningMessage(newContact);
-            }
             if (siteResultModel.threat.CompareTo("N/A") != 0 && siteResultModel.send_warning)
             {
                 // copy to russell@magnadigi.com for confirmation that the service is working.
@@ -276,6 +265,17 @@ namespace adad.Services
                 {
                     siteResultModel.threat = "High Heat";
                     siteResultModel.severity = "Medium";
+                }
+                if (!siteResultModel.threat.Equals("N/A") && siteResultModel.send_warning)
+                {
+                    // send warning email
+                    ContactDataModel newContact = new ContactDataModel();
+                    EmailService email = new EmailService();
+                    newContact.Email = siteResultModel.email;
+                    newContact.Name = siteResultModel.contact_name;
+                    newContact.Message = "The ADAD weather system detected a weather event code: " + siteResultModel.threat;
+                    newContact.Subject = "Important warning from ADAD system";
+                    email.SendWarningMessage(newContact);
                 }
             }
             catch (Exception e)

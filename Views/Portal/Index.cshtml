@@ -16,10 +16,18 @@
        <br />
        <form>
         <div class="btn-container" style="display:flex; justify-content:space-between;">
-            <span style="font-weight:600; padding-top:5px; color: blue; font-size: 1.2em;">*Click on any site in this list to view current and future weather conditions!</span>
-            <button asp-action="Create" asp-controller="Portal" class="btn btn-primary btn-align-left">Add New Site</button>
-        </div>
-           
+            <div class="message-text">
+                <span style="font-weight:600; padding-top:5px; color: blue; font-size: 1.2em;">*Click on any site in this list to view current and future weather conditions!</span>
+            </div>
+             <div class="add-site-btn-container">
+
+                 <div class="add-site-btn">
+                     <button asp-action="Create" asp-controller="Portal" class="btn btn-primary btn-align-left ">Add New Site</button>
+                 </div>
+                
+            </div>
+            
+        </div>           
            <table class="table table-responsive table-hover">
                <thead>
                    <tr class="table-active">
@@ -52,8 +60,9 @@
                             <td class="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td4 hide-column" id="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td4" >@site.city</td>
                             <td class="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td4" id="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td5" >@site.threat</td>
                             <td class="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td4" id="open-modal-@site.idSite.Substring(3,site.idSite.Length - 3)td6" >@site.severity</td>                   
-                            <td style="text-align: center !important;">
+                            <td style="text-align: right !important;">
                                 <div class="btn-group btn-group-sm">
+                                   
                                     <a asp-controller="Portal" asp-action="Edit" asp-route-id="@site.idSite.Substring(3,length)"
                                     class="btn btn-primary">Edit</a>
                                     <a asp-controller="Portal" asp-action="Delete" asp-route-id="@site.idSite.Substring(3,length)"
