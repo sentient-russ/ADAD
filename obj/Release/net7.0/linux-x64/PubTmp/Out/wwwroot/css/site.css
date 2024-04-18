@@ -40,15 +40,7 @@ a {
     border: 1px solid black;
     border-radius: 4px;
 }
-.btn-container {
-    display: flex;
-    flex-direction: row;
-    justify-content: right;
-    padding-bottom: 5px;
-}
-.btn-align-left {
-    min-width: 200px;
-}
+
 .flex-container-column{
     display:flex;
     flex-direction:row;
@@ -209,13 +201,40 @@ dialog {
 .close-button{
     margin-bottom:5px;
 }
-@media (min-width: 768px) {
+.add-site-btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: end;
+    max-width: 30vw !important;
+    min-width: 30vw !important;
+    margin-bottom:0px;
+
+}
+.add-site-btn-spacer {
+}
+.add-site-btn {
+    padding-top: 50px;
+    margin-right: 5px;
+}
+.message-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: end;
+}
+.btn-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-bottom: 5px;
+}
+.btn-align-left {
+
+}
+@media (min-width: 800px) {
     html {
         font-size: 16px;
     }
-
 }
-
 @media(max-width: 700px) {
     .hide-column {
         display: none;

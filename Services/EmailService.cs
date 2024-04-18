@@ -31,7 +31,7 @@ namespace adad.Services
             return response;
         }
 
-        public String SendWarningMessage(ContactDataModel complexDataIn)
+        public String SendWarningMessage(ContactDataModel complexDataIn, SiteModel siteModelIn)
         {
             string _pass = MD_Email_Pass;
             var email = new MimeMessage();
@@ -40,7 +40,11 @@ namespace adad.Services
             email.Subject = complexDataIn.Subject;
             email.Body = new TextPart(MimeKit.Text.TextFormat.Html)
             {
-                Text = complexDataIn.Message
+                Text = "<p><strong>Contact Name: </strong>" + complexDataIn.Name + "</p>" +
+              "<p><strong>Contact Company: </strong>" + siteModelIn.site_name + "</p>" +
+              "<p><strong>Severity: </strong>" + siteModelIn.severity + "</p>" +
+              "<p><strong>Threat: </strong>" + siteModelIn.threat + "</p>" +
+              "<p><strong>Message: </strong>" + complexDataIn.Message + "</p>"
             };
 
             using var smtp = new SmtpClient();

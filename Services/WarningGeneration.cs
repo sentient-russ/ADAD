@@ -142,7 +142,7 @@ namespace adad.Services
                 newContact.Name = siteResultModel.contact_name;
                 newContact.Message = "The ADAD weather system detected a weather event code: " + siteResultModel.threat;
                 newContact.Subject = "Important warning from ADAD system";
-                email.SendWarningMessage(newContact);
+                email.SendWarningMessage(newContact, siteResultModel);
             }
 
             return siteResultModel;
@@ -275,7 +275,7 @@ namespace adad.Services
                     newContact.Name = siteResultModel.contact_name;
                     newContact.Message = "The ADAD weather system detected a weather event code: " + siteResultModel.threat;
                     newContact.Subject = "Important warning from ADAD system";
-                    email.SendWarningMessage(newContact);
+                    email.SendWarningMessage(newContact, siteResultModel);
                 }
             }
             catch (Exception e)

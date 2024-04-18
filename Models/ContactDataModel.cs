@@ -36,7 +36,14 @@ namespace adad.Controllers
         [BindProperty(SupportsGet = true, Name = "Subject")]
         public string? Subject { get; set; }
 
-        
+        [Required]
+        [DataType(DataType.Text)]
+        [StringLength(1000, MinimumLength = 1)]
+        [DisplayName("Company:")]
+        [BindProperty(SupportsGet = true, Name = "Company")]
+        public string? Company { get; set; }
+
+
     }
 
 }
