@@ -230,9 +230,50 @@ dialog {
 .btn-align-left {
 
 }
-@media (min-width: 800px) {
+.mpop-container{
+    display: flex;
+    flex-direction:row;
+    transform: translateX(-52.5px);
+}
+.mpop-col1{
+    max-width: 150px;
+    min-width: 150px;
+    text-align: end;
+    font-weight:500;
+}
+.mpop-col2{
+    padding-left: 10px;
+}
+
+.to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    height: 30px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #5b7eb1e6;
+    border-radius: .25rem;
+    padding: .5rem;
+    text-decoration: none;
+    transition: 0.2s ease-out;
+    opacity: .99;
+    border: 1px solid;
+    border-color: #333;
+}
+    .to-top span {
+        opacity: 1;
+        color: white;
+    }
+@media (max-width: 800px) {
     html {
         font-size: 16px;
+    }
+    .to-top {
+        right: 35%;
+        left: 35%;
+        width: 30%;
     }
 }
 @media(max-width: 700px) {
@@ -242,5 +283,10 @@ dialog {
     dialog {
         max-width: 95%;
         min-height: 98%;
+    }
+    .to-top {
+        right: 35%;
+        left: 35%;
+        width: 30%;
     }
 }

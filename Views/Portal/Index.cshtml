@@ -187,6 +187,11 @@
        </form>
 
 </div>
+<a href="#" class="to-top">
+    <span class="material-symbols-outlined">arrow_upward_alt</span>
+</a>
+
+
 <script>
     (g => { var h, a, k, p = "The Google Maps JavaScript API", c = "google", l = "importLibrary", q = "__ib__", m = document, b = window; b = b[c] || (b[c] = {}); var d = b.maps || (b.maps = {}), r = new Set, e = new URLSearchParams, u = () => h || (h = new Promise(async (f, n) => { await (a = m.createElement("script")); e.set("libraries", [...r] + ""); for (k in g) e.set(k.replace(/[A-Z]/g, t => "_" + t[0].toLowerCase()), g[k]); e.set("callback", c + ".maps." + q); a.src = `https://maps.${c}apis.com/maps/api/js?` + e; d[q] = f; a.onerror = () => h = n(Error(p + " could not load.")); a.nonce = m.querySelector("script[nonce]")?.nonce || ""; m.head.append(a) })); d[l] ? console.warn(p + " only loads once. Ignoring:", g) : d[l] = (f, ...n) => r.add(f) && u().then(() => d[l](f, ...n)) })
         ({ key: "AIzaSyC8CEJKL4ZC1czxl2DjKvXfUVY5ScRVt_w", v: "weekly" });</script>
@@ -194,34 +199,65 @@
 <script type="text/javascript">
    async function initMap() {
         // Request needed libraries.
+
+
         const { Map, InfoWindow } = await google.maps.importLibrary("maps");
         const { AdvancedMarkerElement, PinElement } = await google.maps.importLibrary("marker");
         const map = new Map(document.getElementById("map"), {
-            center: { lat: 37.4239163, lng: -122.0947209 },
+            center: { lat: 44.967243, lng: -103.771556 },
             zoom: 2,
             mapId: "4504f8b37365c3d0",
         });
-        const infoWindow = new InfoWindow();
+        
     @foreach (var u in Model.sites)
     {
     <text>
+        const @(u.idSite)contentString =
+            '<div id="content">' +
+            '<div id="siteNotice">' +
+            "</div>" +
+            '<h6 id="firstHeading" class="firstHeading">@u.site_name</h6>' +
+            '<div id="bodyContent">' +
+            '<tbody>' +
+            '<table>' +
+            '<tr><div class="mpop-container"><div class="mpop-col1")">Site Id:</div><div class="mpop-col2"><a href="javascript:scrolldiv(`open-modal-@u.idSite.Substring(3,u.idSite.Length - 3)`);">@u.idSite.Substring(3,u.idSite.Length - 3)</a></div></div></tr>' +
+            '<tr><div class="mpop-container"><div class="mpop-col1")">Country:</div><div class="mpop-col2">@u.country</div></div></tr>' +
+            '<tr><div class="mpop-container"><div class="mpop-col1">City:</div><div class="mpop-col2">@u.city</div></div></tr>' +
+            '<tr><div class="mpop-container"><div class="mpop-col1">Lat:</div><div class="mpop-col2">@u.latitude</div></div></tr>' +
+            '<tr><div class="mpop-container"><div class="mpop-col1">Lng:</div><div class="mpop-col2">@u.longitude</div></div></tr>' +
+            '<tr><div class="mpop-container"><div class="mpop-col1">Threat:</div><div class="mpop-col2">@u.threat</div></div></tr>' +
+            '</table>' +
+            '</tbody>' +
+            "</div>" +
+            "</div>";
+        const @(u.idSite)infoWindow = new google.maps.InfoWindow({
+            content: @(u.idSite)contentString,
+            ariaLabel: `@u.site_name`,
+        });
         const @(u.idSite)pin = new PinElement({
             glyph: `@u.site_name`,
         });
         const @u.idSite = new AdvancedMarkerElement({
-                map,
-                position: { lat: @u.latitude, lng: @u.longitude },
-                title: '@u.site_name',
-            });            
+            map,
+            position: { lat: @u.latitude, lng: @u.longitude },
+            title: '@u.site_name',
+        });  
+        const @(u.idSite)infoWindowOptions = {
+        map,
+        anchor: @u.idSite,
+        }
         @(u.idSite).addListener("click", ({ domEvent, latLng }) => {
-            const { target } = domEvent;
-
-            infoWindow.close();
-            infoWindow.setContent(@(u.idSite).title);
-            infoWindow.open(@(u.idSite).map, @(u.idSite));
+            @(u.idSite)infoWindow.close();
+            @(u.idSite)infoWindow.setContent(@(u.idSite)contentString);
+            @(u.idSite)infoWindow.open(@(u.idSite)infoWindowOptions);
         });
+
     </text>
     }
+  }
+  function scrolldiv(xIn) {
+    var elem = document.getElementById(xIn);
+    elem.scrollIntoView();
   }
 
  initMap();

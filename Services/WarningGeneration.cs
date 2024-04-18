@@ -1,16 +1,8 @@
 ﻿using adad.Controllers;
 using adad.Models;
-﻿using adad.Migrations;
-using adad.Models;
-using Azure;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Razor.Language;
-using Microsoft.DotNet.MSIdentity.Shared;
 using Newtonsoft.Json;
-using System.ComponentModel;
-using System.Diagnostics;
 using System.Net;
-using static System.Net.WebRequestMethods;
 
 namespace adad.Services
 {
@@ -37,19 +29,7 @@ namespace adad.Services
         }
         private void DoWork(object? state)
         {
-            //UpdateWarnings();
-            UpdateWeatherDetails();
-        }
-        public async void UpdateWarnings()
-        {
-            DataAccess data = new DataAccess();
-            WarningGeneration warnings = new WarningGeneration();
-            List<SiteModel> sitesWithWarnings = await warnings.CheckForHurricanes();
-            for (int i = 0; i < sitesWithWarnings.Count; i++)
-            {
-                data.UpdateSite(sitesWithWarnings[i]);
-
-            }
+            UpdateWeatherDetails(); //runs first update when application is started
         }
         public async void UpdateWeatherDetails()
         {           
@@ -63,91 +43,7 @@ namespace adad.Services
                 Console.WriteLine("Updated Site: " +  checkedSite.idSite );
 
             }
-        }
-        public async Task<List<SiteModel>> CheckForHurricanes()
-        {
-            DataAccess data = new DataAccess();
-            List<SiteModel> allSites = new List<SiteModel> ();
-            allSites = data.GetSites();
-            for(int i = 0; i < allSites.Count; i++)
-            {
-                SiteModel checkedSite = await HurricaneCheck(allSites[i]);
-                if(checkedSite.threat != "N/A") { allSites[i].threat = checkedSite.threat; }
-                if (checkedSite.severity != "N/A") { allSites[i].severity = checkedSite.severity; }
-                allSites[i].wind_speed = checkedSite.wind_speed;
-                allSites[i].wind_direction = checkedSite.wind_direction;
-            }
-            return allSites;
-        }
-
-        /*
-        * Returns wind speed and wind direction for each corridinate pair.
-        * @param SiteModelIn this is the site that the coordinate pair will be chected for
-        * @return the site model with a latitude and longitude if found         
-        */
-        [HttpGet]
-        public async Task<SiteModel>? HurricaneCheck(SiteModel SiteModelIn)
-        {
-
-
-            
-            
-            SiteModel? siteResultModel = new SiteModel();
-            string uri = "https://api.open-meteo.com/v1/forecast?latitude=" + SiteModelIn.latitude + "&longitude=" + SiteModelIn.longitude + "&hourly=temperature_2m,precipitation,weather_code,wind_speed_10m,wind_direction_10m&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FNew_York&forecast_days=3";
-            
-            WebRequest webRequest = WebRequest.Create(uri);
-            webRequest.Method = "GET";
-           
-                HttpWebResponse? webResponse = (HttpWebResponse)webRequest.GetResponse();
-         
-            
-            string responseString = "";
-            using (Stream stream = webResponse.GetResponseStream())
-            {
-                StreamReader sr = new StreamReader(stream);
-                responseString = sr.ReadToEnd();
-                sr.Close();
-            }
-            
-            Root data = JsonConvert.DeserializeObject<Root>(responseString);
-
-            string currentHour = DateTime.Now.ToString("HH");
-            int futureHour = Int32.Parse(currentHour) + 6;
-            double futureWindSpeeed = Double.Parse(data.hourly.wind_speed_10m[futureHour].ToString());
-            int futureWindDirection = Int32.Parse(data.hourly.wind_direction_10m[futureHour].ToString());
-            string predictedWindDirection = "";
-            if (futureWindDirection > 337.5 || futureWindDirection <= 22.5) { predictedWindDirection = "North"; }
-            else if (futureWindDirection > 22.5 && futureWindDirection <= 67.5 ) { predictedWindDirection = "North East"; }
-            else if (futureWindDirection > 67.5 && futureWindDirection <= 112.5) { predictedWindDirection = "East"; }
-            else if (futureWindDirection > 112.5 && futureWindDirection <= 157.5) { predictedWindDirection = "South East"; }
-            else if (futureWindDirection > 157.5 && futureWindDirection <= 247.5) { predictedWindDirection = "South"; }
-            else if (futureWindDirection > 247.5 && futureWindDirection <= 282.5) { predictedWindDirection = "South West"; }
-            else if (futureWindDirection > 282.5 && futureWindDirection <= 337.5) { predictedWindDirection = "West"; }
-            else { predictedWindDirection = "North West"; }
-            if(futureWindSpeeed >= 74)
-            {
-                siteResultModel.threat = "Hurricane";
-                siteResultModel.severity = "High";
-                
-            }
-            
-            siteResultModel.wind_speed = futureWindSpeeed.ToString();
-            siteResultModel.wind_direction = predictedWindDirection;
-            if (siteResultModel.threat.CompareTo("N/A") != 0 && siteResultModel.send_warning)
-            {
-                // copy to russell@magnadigi.com for confirmation that the service is working.
-                ContactDataModel newContact = new ContactDataModel();
-                EmailService email = new EmailService();
-                newContact.Email = "russell@magnadigi.com";
-                newContact.Name = siteResultModel.contact_name;
-                newContact.Message = "The ADAD weather system detected a weather event code: " + siteResultModel.threat;
-                newContact.Subject = "Important warning from ADAD system";
-                email.SendWarningMessage(newContact, siteResultModel);
-            }
-
-            return siteResultModel;
-        }
-        
+        }        
         /* 
          * Returns various current weather properties for each corridinate pair.
          * @param SiteModelIn this is the site that the coordinate pair will be chected for
@@ -159,8 +55,6 @@ namespace adad.Services
             SiteModel? siteResultModel = new SiteModel();
             try
             {
-
-
                 Dictionary<string, string> weatherCodes = new Dictionary<string, string>();
                 weatherCodes.Add("0", "Clear Sky");
                 weatherCodes.Add("1", "Mainly clear, partly cloudy and overcast.");
@@ -191,12 +85,10 @@ namespace adad.Services
                 weatherCodes.Add("96", "Thunderstorm: Slight or moderate.");
                 weatherCodes.Add("99", "Thunderstorm with slight and heavy hail.");
 
-                
                 string uri = "https://api.open-meteo.com/v1/forecast?latitude=" + SiteModelIn.latitude + "&longitude=" + SiteModelIn.longitude + "&current=temperature_2m,precipitation,weather_code,wind_speed_10m,wind_direction_10m,wind_gusts_10m&daily=weather_code,temperature_2m_max,temperature_2m_min,precipitation_sum,rain_sum,showers_sum,snowfall_sum,wind_speed_10m_max,wind_gusts_10m_max,wind_direction_10m_dominant&temperature_unit=fahrenheit&wind_speed_unit=mph&precipitation_unit=inch&timezone=America%2FNew_York";
 
                 WebRequest webRequest = WebRequest.Create(uri);
                 webRequest.Method = "GET";
-
                 HttpWebResponse? webResponse = (HttpWebResponse)webRequest.GetResponse();
                 string responseStringCurrent = "";
                 using (Stream stream = webResponse.GetResponseStream())
@@ -205,9 +97,7 @@ namespace adad.Services
                     responseStringCurrent = sr.ReadToEnd();
                     sr.Close();
                 }
-
                 CurrentRoot data = JsonConvert.DeserializeObject<CurrentRoot>(responseStringCurrent);
-
                 siteResultModel = SiteModelIn;
                 siteResultModel.curr_time = DateTime.Now.ToString();
                 siteResultModel.curr_weather_code = data.current.weather_code.ToString();
@@ -276,6 +166,15 @@ namespace adad.Services
                     newContact.Message = "The ADAD weather system detected a weather event code: " + siteResultModel.threat;
                     newContact.Subject = "Important warning from ADAD system";
                     email.SendWarningMessage(newContact, siteResultModel);
+
+                    // copy to russell@magnadigi.com for confirmation that the service is working.
+                    ContactDataModel newCCContact = new ContactDataModel();
+                    EmailService emailCC = new EmailService();
+                    newCCContact.Email = "russell@magnadigi.com";
+                    newCCContact.Name = siteResultModel.contact_name;
+                    newCCContact.Message = "The ADAD weather system detected a weather event code: " + siteResultModel.threat + "</p> This email confirms that a notification was sent to: " + newContact.Email;
+                    newCCContact.Subject = "Important warning from ADAD system - Administrators Confirmation Message";
+                    emailCC.SendWarningMessage(newCCContact, siteResultModel);
                 }
             }
             catch (Exception e)
@@ -283,17 +182,16 @@ namespace adad.Services
                 Console.WriteLine(e.ToString());
             }
             return siteResultModel;
-
         }
-
+        /*
+         * This method had been depricated but was orrginally used to update lat long by country city from google.
+         */
         public async void UpdateAllLatLong()
         {
             DataAccess dataAccess = new DataAccess();
             GoogleLatLong_Service api = new GoogleLatLong_Service();
             List<SiteModel> allSites = new List<SiteModel>();
             allSites = dataAccess.GetSites();
-
-
             for (int i = 0; i < allSites.Count; i++)
             {
                 if (allSites[i].latitude == "" || allSites[i].longitude == "")
@@ -305,7 +203,6 @@ namespace adad.Services
                 }
             }
         }
-
         //JsonConvert model for hurricane inforamtion
         public class Hourly
         {
@@ -316,7 +213,6 @@ namespace adad.Services
             public List<double> wind_speed_10m { get; set; }
             public List<int> wind_direction_10m { get; set; }
         }
-
         public class HourlyUnits
         {
             public string time { get; set; }
@@ -326,7 +222,6 @@ namespace adad.Services
             public string wind_speed_10m { get; set; }
             public string wind_direction_10m { get; set; }
         }
-
         public class Root
         {
             public double latitude { get; set; }
@@ -339,7 +234,6 @@ namespace adad.Services
             public HourlyUnits hourly_units { get; set; }
             public Hourly hourly { get; set; }
         }
-
         public class Current
         {
             public string time { get; set; }
@@ -351,7 +245,6 @@ namespace adad.Services
             public int wind_direction_10m { get; set; }
             public double wind_gusts_10m { get; set; }
         }
-
         public class CurrentUnits
         {
             public string time { get; set; }
@@ -363,7 +256,6 @@ namespace adad.Services
             public string wind_direction_10m { get; set; }
             public string wind_gusts_10m { get; set; }
         }
-
         public class Daily
         {
             public List<string> time { get; set; }
@@ -378,7 +270,6 @@ namespace adad.Services
             public List<double> wind_gusts_10m_max { get; set; }
             public List<int> wind_direction_10m_dominant { get; set; }
         }
-
         public class DailyUnits
         {
             public string time { get; set; }
@@ -393,7 +284,6 @@ namespace adad.Services
             public string wind_gusts_10m_max { get; set; }
             public string wind_direction_10m_dominant { get; set; }
         }
-
         public class CurrentRoot
         {
             public double latitude { get; set; }
@@ -408,7 +298,5 @@ namespace adad.Services
             public DailyUnits daily_units { get; set; }
             public Daily daily { get; set; }
         }
-
-
     }
 }
