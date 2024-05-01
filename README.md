@@ -18,16 +18,16 @@ C#, .NET7, Vanilla JS, Bootstrap, MySQL, Linux
 - Edit site feature
 - Edit site has a checkbox next to email to enable and disable email alerts.
 - Alert emails sent through the internal module and triggered under specified events.
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Temp over 100 degrees Fahrenheit
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Temp under freezing
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- Hurricane wind speed of over 72mph
+> - Temp over 100 degrees Fahrenheit
+> - Temp under freezing
+> - Hurricane wind speed of over 72mph
 - Alert status is also dynamically shown for each site in the site list
 - Weather conditions are shown in drill-down pop-up modals when sites are clicked in the site list.
 - Weather data obtained at one-hour intervals from an online weather API (https://api.open-meteo.com/)
 - Map geospatial UI provided by the free Google Maps API
 - UI/UX is displayed in an intuitive and accessible manner. (Alt tags were out of scope but can be added easily)
 - SSL/TLS enabled for secure password and data transfer between node
-- 
+  
 > [!NOTE]
 > #### **Demo URL:** https://disasteraversion.net/
 > #### **Demo Account:**
