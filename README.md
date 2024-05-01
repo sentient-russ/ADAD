@@ -35,9 +35,12 @@ C#, .NET7, Vanilla JS, Bootstrap, MySQL, Linux
 - SSL/TLS enabled for secure password and data transfer between node
 
 #### **Demo Screens:**
-<img width="475" alt="demo-screen" src="https://github.com/sentient-russ/ADAD/assets/108576049/bf03dd16-2e9c-429d-8701-086ef9bd6a25">
-<img width="475" alt="demo-screen-weather" src="https://github.com/sentient-russ/ADAD/assets/108576049/e0c64dce-1512-4500-b7c0-29ae50d14db5">
-<img width="474" alt="demo-screen-site-details" src="https://github.com/sentient-russ/ADAD/assets/108576049/5ef45130-9e37-40e8-b303-189561e51f24">
+<p align="center">
+<img width="475" alt="demo-screen" src="https://github.com/sentient-russ/ADAD/assets/108576049/bf03dd16-2e9c-429d-8701-086ef9bd6a25"></p>
+<p align="center">
+<img width="475" alt="demo-screen-weather" src="https://github.com/sentient-russ/ADAD/assets/108576049/e0c64dce-1512-4500-b7c0-29ae50d14db5"></p>
+<p align="center">
+<img width="474" alt="demo-screen-site-details" src="https://github.com/sentient-russ/ADAD/assets/108576049/5ef45130-9e37-40e8-b303-189561e51f24"></p>
 
 
 
